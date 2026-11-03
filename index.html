@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imparables | Cuentos de personas reales que cambiaron el mundo</title>
+<meta name="description" content="Cuentos ilustrados sobre personas reales que cambiaron el mundo: santos, científicos, músicos, artistas, inventores, deportistas y líderes. Para que tus peques descubran que ellos también pueden.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&family=Rum+Raisin&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#FF6060;
+    --primary-dark:#E94848;
+    --grad:linear-gradient(135deg,#FF4B6E 0%,#FF6060 45%,#FF8A55 100%);
+    --ink:#24203F;
+    --text:#4A4563;
+    --muted:#8A86A0;
+    --line:#EEEAF3;
+    --soft:#FAF8F6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{font-family:"Dosis",system-ui,sans-serif;font-size:19px;font-weight:500;line-height:1.6;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+  h1,h2{font-family:"Rum Raisin",system-ui,sans-serif;font-weight:400;line-height:1.02;letter-spacing:.3px}
+  h2{color:var(--primary)}
+  h3{font-family:"Dosis",sans-serif;font-weight:800;color:var(--ink);line-height:1.2}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:8px}
+  .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+  .ico{width:1em;height:1em;flex:none}
+
+  /* ---------- Botones ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Dosis";font-weight:800;font-size:17px;letter-spacing:.3px;padding:15px 28px;border-radius:999px;transition:background .2s,transform .2s,box-shadow .2s,color .2s;cursor:pointer;border:0;white-space:nowrap}
+  .btn .ico{font-size:20px}
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 10px 24px -10px rgba(255,96,96,.85)}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+  .btn-white{background:#fff;color:var(--primary);box-shadow:0 14px 30px -14px rgba(120,10,30,.6)}
+  .btn-white:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px rgba(120,10,30,.7)}
+  .btn-ghost{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.85)}
+  .btn-ghost:hover{background:rgba(255,255,255,.14)}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:30;background:linear-gradient(90deg,#FF4B6E 0%,#FF6060 50%,#FF7458 100%);color:#fff;transition:box-shadow .2s}
+  header.scrolled{box-shadow:0 12px 30px -18px rgba(120,10,30,.55)}
+  .brand{display:inline-flex}
+  .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand img{height:38px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:34px;font-weight:700;font-size:18px;color:#fff}
+  .nav-links a:not(.btn){position:relative;padding:6px 0}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:3px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+  .nav-links a:not(.btn):hover::after{transform:scaleX(1)}
+  .nav-links .btn{padding:11px 22px;font-size:16px}
+  .menu-btn{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;border-radius:12px}
+  .menu-btn span{display:block;width:22px;height:2.5px;background:#fff;margin:5px auto;border-radius:2px}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--grad);color:#fff;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:780px;height:780px;border-radius:50%;right:-260px;top:-240px;background:radial-gradient(circle,rgba(255,255,255,.18),rgba(255,255,255,0) 65%)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding:56px 0 72px;position:relative}
+  .hero h1{font-size:clamp(38px,4.6vw,64px);margin-bottom:20px;color:#fff;text-wrap:balance}
+  .hero .lead{font-size:clamp(18px,1.6vw,21px);max-width:42ch;margin-bottom:30px;color:rgba(255,255,255,.94)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+  .hero-note{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:16px;font-weight:700}
+  .hero-note span{display:inline-flex;align-items:center;gap:7px}
+  .hero-note .ico{font-size:18px}
+
+  .shelf{position:relative;aspect-ratio:1/0.86;width:100%}
+  .shelf img{position:absolute;width:42%;filter:drop-shadow(0 16px 18px rgba(120,20,35,.18));transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .shelf img:nth-child(1){left:0;top:4%;transform:rotate(-9deg)}
+  .shelf img:nth-child(2){left:29%;top:0;transform:rotate(3deg);z-index:2}
+  .shelf img:nth-child(3){left:58%;top:6%;transform:rotate(10deg)}
+  .shelf img:nth-child(4){left:13%;top:46%;transform:rotate(6deg);z-index:3}
+  .shelf img:nth-child(5){left:47%;top:48%;transform:rotate(-5deg);z-index:4}
+  .shelf img:hover{transform:rotate(0) scale(1.06);z-index:9}
+  .badge{position:absolute;right:2%;bottom:2%;z-index:6;width:128px;height:128px;border-radius:50%;background:#FFD23F;color:var(--ink);display:grid;place-content:center;text-align:center;transform:rotate(10deg);box-shadow:0 18px 30px -16px rgba(90,10,25,.6)}
+  .badge strong{font-family:"Rum Raisin";font-weight:400;font-size:42px;line-height:.9}
+  .badge span{font-weight:800;font-size:14px;line-height:1.15}
+
+  /* Cinta de colecciones */
+  .ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0}
+  .ticker-track{display:inline-flex;gap:0;animation:tick 40s linear infinite}
+  .ticker span{display:inline-flex;align-items:center;gap:18px;padding-right:18px;font-family:"Rum Raisin";font-size:24px;letter-spacing:.4px}
+  .ticker i{width:10px;height:10px;border-radius:50%;display:block}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* ---------- Secciones ---------- */
+  .section{padding:104px 0}
+  .head{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:48px;max-width:760px}
+  .head h2{font-size:clamp(38px,4.8vw,60px);text-wrap:balance}
+  .head p{font-size:20px;max-width:60ch}
+
+  /* Colecciones */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .cat{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:22px;background:#fff;box-shadow:inset 0 0 0 2px var(--line);transition:box-shadow .2s,transform .2s;cursor:pointer;text-align:left;border:0;width:100%}
+  .cat:hover{box-shadow:inset 0 0 0 2px var(--dark);transform:translateY(-3px)}
+  .cat .sq{flex:none;width:60px;height:60px;border-radius:18px;display:grid;place-items:center;background:var(--dark);color:#fff;transform:rotate(-4deg);transition:transform .25s}
+  .cat:hover .sq{transform:rotate(4deg) scale(1.05)}
+  .cat .sq .ico{font-size:28px}
+  .cat h3{font-size:20px}
+  .status{display:inline-flex;align-items:center;gap:6px;margin-top:5px;font-size:15px;font-weight:800;color:var(--dark)}
+  .status .ico{font-size:17px}
+  .status.pill{background:var(--tint);padding:3px 11px;border-radius:999px}
+
+  /* Libros */
+  .books-sec{background:var(--soft)}
+  .feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+  .feat{padding:24px;border-radius:22px;background:var(--soft)}
+  .feat .sq{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:var(--dark);color:#fff;margin-bottom:16px;transform:rotate(-4deg)}
+  .feat .sq .ico{font-size:24px}
+  .feat h3{font-size:20px;margin-bottom:4px}
+  .feat p{font-size:17px;line-height:1.45}
+
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+  .chip{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:800;font-size:16px;padding:10px 18px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line);transition:all .2s}
+  .chip i{width:10px;height:10px;border-radius:50%;display:block;background:var(--dark,var(--primary))}
+  .chip:hover{box-shadow:inset 0 0 0 2px var(--dark,var(--ink))}
+  .chip[aria-pressed="true"]{background:var(--dark,var(--ink));color:#fff;box-shadow:none}
+  .chip[aria-pressed="true"] i{background:#fff}
+
+  .books{display:grid;grid-template-columns:repeat(5,1fr);gap:28px 22px}
+  .book{display:flex;flex-direction:column}
+  .book .tile{position:relative;display:grid;place-items:center;aspect-ratio:1/1.05;border-radius:24px;background:var(--tint);padding:14px;overflow:hidden;transition:transform .3s}
+  .book .tile img{width:100%;filter:drop-shadow(0 18px 18px rgba(36,32,63,.22));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+  .book:hover .tile img{transform:rotate(-3deg) scale(1.05)}
+  .book .flag{position:absolute;top:12px;left:12px;background:var(--ink);color:#fff;font-size:13px;font-weight:800;padding:4px 10px;border-radius:999px;z-index:2}
+  .book .meta{padding:16px 4px 0;display:flex;flex-direction:column;flex:1}
+  .book .col{font-size:14px;font-weight:800;color:var(--dark)}
+  .book h3{font-size:20px;margin:2px 0 6px}
+  .book p{font-size:16px;line-height:1.5;margin-bottom:16px;flex:1}
+  .buy{align-self:flex-start;white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:#fff;padding:9px 16px;border-radius:999px;background:var(--primary);transition:background .2s,transform .2s}
+  .buy:hover{background:var(--primary-dark);transform:translateY(-1px)}
+  .buy.soon{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+  .buy.soon:hover{box-shadow:inset 0 0 0 2px var(--ink)}
+  .buy .ico{font-size:16px}
+  .filters{display:block;margin-bottom:28px}
+  .fgroup{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{white-space:nowrap}
+  .chip .ico{font-size:17px}
+  .chip.star{--dark:var(--primary);color:var(--primary)}
+  .chip.star[aria-pressed="true"]{color:#fff}
+  .fbar{display:flex;align-items:center;justify-content:space-between;gap:14px 20px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:2px dashed #E4DFEA}
+  .count{font-weight:800;color:var(--ink);font-size:18px}
+  .count small{display:block;font-size:15px;font-weight:600;color:var(--muted)}
+  .seg{display:inline-flex;align-items:center;background:#ECE8F1;border-radius:14px;padding:4px;gap:2px}
+  .seg-label{font-size:14px;font-weight:800;color:var(--muted);padding:0 10px 0 10px}
+  .seg button{border:0;background:transparent;font-weight:800;font-size:15px;color:var(--text);padding:8px 16px;border-radius:10px;cursor:pointer;transition:background .2s,box-shadow .2s}
+  .seg button:hover{color:var(--ink)}
+  .seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(36,32,63,.16)}
+  .book .flag.soon{left:auto;right:12px;background:#fff;color:var(--dark);z-index:5;box-shadow:0 6px 14px -6px rgba(0,0,0,.35)}
+  .book .tile img.flat{width:86%;border-radius:4px 10px 10px 4px;filter:none;box-shadow:0 18px 26px -14px rgba(36,32,63,.45)}
+  .book.soon .tile::after{content:"";position:absolute;inset:0;background:var(--dark);opacity:.3;z-index:3}
+  .book .veil{position:absolute;inset:0;display:grid;place-items:center;z-index:4}
+  .book .veil b{background:#fff;color:var(--dark);font-weight:800;font-size:15px;padding:7px 16px;border-radius:999px;box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+  .book.soon:hover .tile img{transform:none}
+  .book .sub{font-size:15px;font-weight:700;color:var(--dark);margin:-2px 0 6px}
+  .gcover{position:relative;width:86%;aspect-ratio:.92;border-radius:4px 10px 10px 4px;background:var(--cv);box-shadow:0 18px 26px -14px rgba(36,32,63,.45),inset 0 0 0 1px rgba(255,255,255,.15);display:flex;flex-direction:column;align-items:center;padding:9% 7% 7%;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1);container-type:inline-size}
+  .gcover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6%;background:linear-gradient(90deg,rgba(0,0,0,.14),transparent)}
+  .gcover .lg{width:82%;filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff)}
+  .gcover .cpill{margin-top:4cqw;font-size:7cqw;font-weight:800;color:#fff;background:var(--band);border:1.5px solid rgba(255,255,255,.9);border-radius:6px;padding:.5cqw 4cqw;white-space:nowrap}
+  .gcover .band{position:relative;align-self:stretch;margin:7cqw 6cqw 0 -8.2%;background:var(--band);color:#fff;font-family:"Rum Raisin";font-size:14.5cqw;line-height:1.05;padding:7cqw 7cqw 7cqw 9cqw;text-align:left;clip-path:polygon(0 6%,100% 0,100% 100%,0 94%);display:flex;flex-direction:column}
+  .gcover.duo .band{font-size:9.6cqw;padding:5cqw 6cqw 5cqw 9cqw;margin-top:5cqw}
+  .gcover.duo .cpill{margin-top:3cqw}
+  .gcover .band em{font-style:normal;opacity:.75;font-size:.8em;line-height:1}
+  .gcover .csub{margin-top:auto;align-self:stretch;color:#fff;font-weight:800;font-size:6.6cqw;line-height:1.15;text-align:left;padding-top:3cqw;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+  .book:hover .tile .gcover{transform:rotate(-3deg) scale(1.04)}
+  .empty{grid-column:1/-1;background:#fff;border-radius:24px;padding:40px;text-align:center}
+  .empty h3{font-size:24px;margin-bottom:6px}
+  .empty p{margin-bottom:20px}
+
+  /* Detrás de Imparables */
+  .about{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+  .about .head{margin-bottom:24px}
+  .about p+p{margin-top:16px}
+  .about-text p{font-size:20px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:10px}
+  .stat{border-radius:26px;padding:28px 24px;color:#fff;box-shadow:0 24px 36px -24px rgba(36,32,63,.6);transition:transform .3s}
+  .stat strong{display:block;font-family:"Rum Raisin";font-weight:400;font-size:clamp(50px,5.4vw,70px);line-height:.95}
+  .stat span{display:block;font-weight:800;font-size:17px;line-height:1.3;margin-top:8px}
+  .stat:nth-child(1){background:#FF6060;transform:rotate(-3deg)}
+  .stat:nth-child(2){background:#1565C0;transform:rotate(2deg) translateY(22px)}
+  .stat:nth-child(3){background:#1E8E3E;transform:rotate(2deg)}
+  .stat:nth-child(4){background:#7B2CBF;transform:rotate(-2deg) translateY(22px)}
+  .stat:hover{transform:rotate(0) scale(1.04)}
+
+  /* Avisos */
+  .news{background:var(--ink);border-radius:36px;padding:64px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;color:#fff;position:relative;overflow:hidden}
+  .news::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--grad);right:-90px;top:-110px;opacity:.9}
+  .news h2{color:#fff;font-size:clamp(34px,4.2vw,52px);margin-bottom:12px}
+  .news p{color:#D6D3E6;font-size:19px}
+  .news form{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px;position:relative;z-index:1}
+  .news input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
+  .news input:focus{outline:none}
+  .news form:focus-within{box-shadow:0 0 0 3px rgba(255,96,96,.6)}
+  .news .btn{padding:12px 24px}
+  .sr{position:absolute;left:-9999px}
+
+  /* Footer */
+  footer{background:var(--grad);color:#fff;padding:72px 0 36px;margin-top:104px}
+  .foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  .foot-logo{display:inline-block;margin-bottom:18px}
+  .foot-logo img{height:38px;width:auto}
+  .foot p{font-size:18px;max-width:32ch;color:rgba(255,255,255,.95)}
+  .foot h4{font-family:"Dosis";font-weight:800;font-size:17px;margin-bottom:14px}
+  .foot ul{list-style:none;display:grid;gap:8px;font-size:17px;color:rgba(255,255,255,.92)}
+  .foot a:hover{text-decoration:underline;text-underline-offset:3px}
+  .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3);font-size:15px;color:rgba(255,255,255,.85)}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1100px){ .books{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:1020px){
+    .cats{grid-template-columns:repeat(2,1fr)}
+    .feats{grid-template-columns:repeat(2,1fr)}
+    .about{grid-template-columns:1fr;gap:40px}
+    .news{grid-template-columns:1fr;padding:48px}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:20px;padding:36px 0 48px}
+    .shelf{max-width:520px;margin:0 auto}
+  }
+  @media (max-width:760px){
+    .menu-btn{display:block}
+    .nav{height:68px}
+    .nav-links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:12px 20px 24px;background:linear-gradient(90deg,#FF4B6E,#FF7458);box-shadow:0 20px 30px -20px rgba(120,10,30,.5);display:none}
+    .nav-links.open{display:flex}
+    .nav-links a:not(.btn){padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+    .nav-links .btn{margin-top:12px}
+    .brand img{height:32px}
+    .section{padding:72px 0}
+    body{font-size:18px}
+    .head p,.about-text p{font-size:18px}
+    .ticker span{font-size:20px}
+  }
+  @media (max-width:520px){
+    .wrap{width:calc(100% - 32px)}
+    .hero h1{font-size:36px}
+    .hero .lead{font-size:17px;margin-bottom:22px}
+    .hero-actions .btn{flex:1 1 100%;padding:14px 20px}
+    .badge{width:96px;height:96px}
+    .badge strong{font-size:32px}
+    .badge span{font-size:12px}
+    .cats,.feats{grid-template-columns:1fr}
+    .fgroup{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}
+    .fgroup::-webkit-scrollbar{display:none}
+    .seg{width:100%}
+    .seg-label{display:none}
+    .seg button{flex:1;padding:9px 6px}
+    .books{grid-template-columns:1fr 1fr;gap:24px 14px}
+    .book h3{font-size:17px}
+    .book p{display:none}
+    .buy{padding:8px 14px;font-size:14px;gap:6px}
+    .buy .long{display:none}
+    .stats{gap:14px;padding:0 4px}
+    .stat{padding:20px 16px}
+    .news{padding:40px 24px;border-radius:28px}
+    .news form{flex-direction:column;border-radius:20px;padding:8px}
+    .news input{padding:12px}
+    .foot{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Imparables, inicio"><img src="img/logo.png" alt="Imparables" width="605" height="157"></a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" id="menuBtn"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#colecciones">Colecciones</a>
+      <a href="#libros">Libros</a>
+      <a href="#detras">Detrás de Imparables</a>
+      <a href="#libros" class="btn btn-white">Comprar libros</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Antes de cambiar el mundo, también fueron peques</h1>
+      <p class="lead">Sorolla llenaba de dibujos los cuadernos del cole. Ramón y Cajal se metía en más líos que nadie. Katherine Johnson contaba hasta las estrellas. Cuentos ilustrados de personas reales para que tus peques descubran que ellos también pueden.</p>
+      <div class="hero-actions">
+        <a href="#libros" class="btn btn-white"><svg class="ico"><use href="#i-cart"/></svg>Comprar libros</a>
+        <a href="#avisos" class="btn btn-ghost"><svg class="ico"><use href="#i-bell"/></svg>Avísame del próximo</a>
+      </div>
+      <div class="hero-note">
+        <span><svg class="ico"><use href="#i-check"/></svg>Historias reales</span>
+        <span><svg class="ico"><use href="#i-check"/></svg>Ilustradas a todo color</span>
+        <span><svg class="ico"><use href="#i-check"/></svg>Con preguntas para pensar</span>
+      </div>
+    </div>
+    <div class="shelf" id="shelf">
+      <div class="badge"><strong data-total>28</strong><span>imparables<br>esperándote</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- COLECCIONES -->
+<section class="section" id="colecciones">
+  <div class="wrap">
+    <div class="head">
+      <h2>Elige tu equipo de imparables</h2>
+      <p>Santos con superpoderes de los buenos, científicos que lo preguntaban todo y músicos que tarareaban hasta dormidos. Tres colecciones ya están en la calle y el resto viene pisando fuerte.</p>
+    </div>
+    <div class="cats" id="cats"></div>
+    <div class="feats" id="feats"></div>
+  </div>
+</section>
+
+<!-- LIBROS -->
+<section class="section books-sec" id="libros">
+  <div class="wrap">
+    <div class="head">
+      <h2>Pequeños por fuera, enormes por dentro</h2>
+      <p>Caben en la mochila, sobreviven a la merienda y se leen en lo que tardas en decir «uno más y a dormir». Spoiler: nunca es uno más.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar libros"></div>
+    <div class="books" id="books"></div>
+  </div>
+</section>
+
+<!-- DETRÁS DE IMPARABLES -->
+<section class="section" id="detras">
+  <div class="wrap about">
+    <div class="about-text">
+      <div class="head">
+        <h2>Detrás de Imparables</h2>
+      </div>
+      <p>Imparables nació el mismo día que nuestra hija, Isabel. La miramos y lo tuvimos clarísimo: queremos que crezca sabiendo que puede ser quien ella quiera. Pintora, científica, astronauta… o las tres a la vez, que para algo es su vida.</p>
+      <p>¿Y qué mejor manera que conocer a gente de verdad que lo consiguió? Personas que dudaron, metieron la pata y siguieron adelante. Así que nos pusimos a contar sus historias. Primero para ella. Ahora, también para tus peques.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong data-total>28</strong><span>personas reales que cambiaron el mundo</span></div>
+      <div class="stat"><strong>9</strong><span>colecciones (y subiendo)</span></div>
+      <div class="stat"><strong>1</strong><span>peque que lo empezó todo</span></div>
+      <div class="stat"><strong>∞</strong><span>preguntas al cerrar cada libro</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AVISOS -->
+<section class="wrap" id="avisos">
+  <div class="news">
+    <div>
+      <h2>¿Te avisamos del próximo imparable?</h2>
+      <p>Un correo cuando salga libro nuevo y punto. Ni spam ni rollos. Palabra de imparable.</p>
+    </div>
+    <form id="newsForm">
+      <label for="email" class="sr">Tu correo</label>
+      <input id="email" type="email" required placeholder="tu@correo.com">
+      <button class="btn btn-primary" type="submit">Avísame</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="index.html" class="foot-logo"><img src="img/logo.png" alt="Imparables" width="605" height="157"></a>
+        <p>Cuentos de personas reales que cambiaron el mundo, para peques con ganas de cambiarlo un poquito más.</p>
+      </div>
+      <div><h4>Colecciones</h4><ul id="footCats1"></ul></div>
+      <div><h4 aria-hidden="true">&nbsp;</h4><ul id="footCats2"></ul></div>
+      <div>
+        <h4>Imparables</h4>
+        <ul>
+          <li><a href="#libros">Libros</a></li>
+          <li><a href="#detras">Detrás de Imparables</a></li>
+          <li><a href="#avisos">Avísame del próximo</a></li>
+          <li><a href="mailto:hola@somosirremplazables.com">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr"></span> Imparables</span>
+      <span>Hecho con cariño entre Nueva York y Madrid</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   DATOS: edita aquí.
+   Colecciones
+   - estado: "disponible" | "fecha" | "proximamente"
+   - fecha: texto cuando estado es "fecha"
+   - El número de personas se calcula solo a partir de los libros.
+   Libros
+   - amazon: A("ASIN") si está a la venta; null si aún no ha salido
+   - personas: solo en los dúos (nombres de los dos protagonistas)
+   - portada: ruta a la imagen; si no hay, se genera una portada con los colores de la colección
+   ========================================================= */
+
+// tint = fondo claro, dark = color principal, cv/band = portada generada
+const COLORES = {
+  azul:       { tint:"#E3F1FD", dark:"#1565C0", cv:"#86C7E6", band:"#2140A8" },
+  verde:      { tint:"#E4F7E8", dark:"#1E8E3E", cv:"#72BE73", band:"#23843B" },
+  teal:       { tint:"#DDF5F3", dark:"#0F8B84", cv:"#4FBDBE", band:"#0F7F7A" },
+  rosaOscuro: { tint:"#FCE4EF", dark:"#C2185B", cv:"#E886AE", band:"#B0175A" },
+  rojo:       { tint:"#FFE5E5", dark:"#E04545", cv:"#E98C9E", band:"#C2456A" },
+  morado:     { tint:"#F1E6FB", dark:"#7B2CBF", cv:"#B98DE2", band:"#6A2CB0" },
+  amarillo:   { tint:"#FFF2CC", dark:"#C98A00", cv:"#EEC54E", band:"#C48F12" },
+  naranja:    { tint:"#FFEBDC", dark:"#E0680F", cv:"#F5A462", band:"#D2600E" },
+  azulOscuro: { tint:"#E1E6F5", dark:"#1F3F9E", cv:"#7189D8", band:"#1F3480" },
+};
+
+const ICONOS = {
+  paloma:'<path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3M14 17.75V21M7 18a6 6 0 0 0 3.84-10.61"/>',
+  matraz:'<path d="M9 3h6"/><path d="M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9.5V3"/><path d="M7 15h10"/>',
+  bombilla:'<path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"/>',
+  edificio:'<path d="M3 21h18"/><path d="M5 21V10l7-6 7 6v11"/><path d="M9 21v-5h6v5"/><path d="M12 4V2"/>',
+  pincel:'<path d="m14.6 9.4 5.9-5.9a2.1 2.1 0 0 1 3 3l-5.9 5.9"/><path d="M7 14c-2 0-3.5 1.5-3.5 3.5 0 1.4-.7 2.2-1.5 2.5 1 .7 2.3 1 3.5 1C8 21 10 19 10 17c0-1.7-1.3-3-3-3z"/><path d="m10 14 4.6-4.6 2 2L12 16"/>',
+  libro:'<path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/>',
+  nota:'<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  medalla:'<circle cx="12" cy="15" r="6"/><path d="M8.2 10.3 5 3h4l3 6 3-6h4l-3.2 7.3"/><path d="M12 13v4"/>',
+  mundo:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/>',
+  tapa:'<path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6.5a2.5 2.5 0 0 0 0 5H19v-5"/>',
+  imagen:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4-4L5 21"/>',
+  texto:'<path d="M4 7V5h16v2"/><path d="M9 19h6"/><path d="M12 5v14"/>',
+  pregunta:'<path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 12z"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.8 1c0 1.7-2.3 2-2.3 3.5"/><path d="M12 17h.01"/>',
+};
+
+const CATEGORIAS = [
+  { slug:"huellas-de-santidad",      nombre:"Huellas de Santidad",      icono:"paloma",   color:"azul",       estado:"disponible" },
+  { slug:"todo-por-la-ciencia",      nombre:"Todo por la ciencia",      icono:"matraz",   color:"verde",      estado:"disponible" },
+  { slug:"grandes-de-la-musica",     nombre:"Grandes de la música",     icono:"nota",     color:"amarillo",   estado:"disponible" },
+  { slug:"arquitectura-sin-limites", nombre:"Arquitectura sin límites", icono:"edificio", color:"rosaOscuro", estado:"fecha", fecha:"Llega a mediados de noviembre" },
+  { slug:"inventos-revolucionarios", nombre:"Inventos revolucionarios", icono:"bombilla", color:"teal",       estado:"proximamente" },
+  { slug:"muchas-pinceladas",        nombre:"Muchas pinceladas",        icono:"pincel",   color:"rojo",       estado:"proximamente" },
+  { slug:"contando-historias",       nombre:"Contando historias",       icono:"libro",    color:"morado",     estado:"proximamente" },
+  { slug:"estrellas-del-deporte",    nombre:"Estrellas del deporte",    icono:"medalla",  color:"naranja",    estado:"proximamente" },
+  { slug:"lideres-del-mundo",        nombre:"Líderes del mundo",        icono:"mundo",    color:"azulOscuro", estado:"proximamente" },
+];
+
+const CARACTERISTICAS = [
+  { icono:"tapa",     color:"azul",     titulo:"Tapa blanda",            texto:"A prueba de mochilas, meriendas y lecturas en bucle." },
+  { icono:"imagen",   color:"rojo",     titulo:"Un dibujazo por página", texto:"Ilustración a todo color en cada página derecha. Sí, en todas." },
+  { icono:"texto",    color:"verde",    titulo:"Textos cortitos",        texto:"Frases cortas y cero palabros raros. Se leen solas (casi)." },
+  { icono:"pregunta", color:"amarillo", titulo:"Preguntas al final",     texto:"Para charlar juntos. Prepárate, que también te tocará responder." },
+];
+
+const A = asin => `https://www.amazon.es/dp/${asin}`;
+const S = "huellas-de-santidad", C = "todo-por-la-ciencia", M = "grandes-de-la-musica";
+
+const LIBROS = [
+  /* ---- Huellas de Santidad · individuales ---- */
+  { titulo:"Santa Teresa de Calcuta", categoria:S, portada:"img/portadas/teresa-de-calcuta.jpg", amazon:A("B0H6V47LZW"),
+    texto:"Dedicó su vida a cuidar a quienes nadie cuidaba. Pequeñita por fuera, gigante por dentro." },
+  { titulo:"San Francisco de Asís", categoria:S, portada:"img/portadas/francisco-de-asis.jpg", amazon:A("B0H6TTFJXM"),
+    texto:"Lo tenía todo y lo dejó todo. Amigo de los pobres, de los lobos y de los pájaros." },
+  { titulo:"Santa Teresa de Jesús", categoria:S, portada:"img/portadas/teresa-de-jesus.jpg", amazon:A("B0H6TTNJHK"),
+    texto:"Escritora, viajera y muy decidida. Cuando se le metía algo en la cabeza, no había quien la parase." },
+  { titulo:"San Juan Pablo II", categoria:S, portada:"img/portadas/juan-pablo-ii.jpg", amazon:A("B0H71K8YGJ"),
+    texto:"Esquiaba, hacía teatro y recorrió el mundo entero repartiendo esperanza." },
+  { titulo:"Santa Teresa de Lisieux", categoria:S, portada:"img/portadas/teresa-de-lisieux.jpg", amazon:A("B0H7C4QYVG"),
+    texto:"Descubrió un caminito para llegar al cielo: hacer cosas pequeñas con un amor enorme." },
+  { titulo:"San Antonio de Padua", categoria:S, portada:"img/portadas/antonio-de-padua.jpg", amazon:A("B0H6ZMR3H6"),
+    texto:"El santo al que todo el mundo llama cuando pierde algo. Y predicaba de maravilla." },
+  { titulo:"San Ignacio de Loyola", categoria:S, portada:"img/portadas/ignacio-de-loyola.jpg", amazon:A("B0H6QX2ZT4"),
+    texto:"Era soldado, una herida lo dejó en la cama… y leyendo le cambió la vida." },
+  { titulo:"San Martín de Tours", categoria:S, portada:"img/portadas/martin-de-tours.jpg", amazon:A("B0H79JWNMS"),
+    texto:"Un soldado romano que partió su capa por la mitad para abrigar a un pobre." },
+  { titulo:"San Junípero Serra", categoria:S, portada:"img/portadas/junipero-serra.jpg", amazon:A("B0H6V97Z8N"),
+    texto:"De un pueblecito de Mallorca a fundar misiones en California. ¡Menudo viaje!" },
+  { titulo:"San Juan Diego", categoria:S, portada:"img/portadas/juan-diego.jpg", amazon:A("B0H6TZM4R9"),
+    texto:"Un indígena sencillo de México al que la Virgen de Guadalupe eligió como mensajero." },
+  { titulo:"Santa Faustina", categoria:S, portada:"img/portadas/faustina.jpg", amazon:A("B0H79G1ZH5"),
+    texto:"Una monja polaca que nos enseñó a confiar en la misericordia de Dios." },
+  { titulo:"Santa Catalina de Siena", categoria:S, portada:"img/portadas/catalina-de-siena.jpg", amazon:A("B0H7C4M4X7"),
+    texto:"Valiente y decidida, se atrevió a dar consejos ¡hasta al Papa!" },
+  { titulo:"Santa Rosa de Lima", categoria:S, portada:"img/portadas/rosa-de-lima.jpg", amazon:A("B0H799JCYG"),
+    texto:"La primera santa de América, que cuidaba de los enfermos y los pobres de Lima." },
+  { titulo:"San Patricio", categoria:S, portada:"img/portadas/patricio.jpg", amazon:A("B0H7C58B93"),
+    texto:"Llevó la fe a Irlanda y, dicen, explicaba la Trinidad con un trébol." },
+  { titulo:"Santa Juana de Arco", categoria:S, portada:"img/portadas/juana-de-arco.jpg", amazon:A("B0H751FNVZ"),
+    texto:"Con solo 17 años, se puso al frente de un ejército para defender Francia." },
+  { titulo:"Pastorcitos de Fátima", categoria:S, portada:"img/portadas/pastorcitos-de-fatima.jpg", amazon:A("B0H75BD5N6"),
+    texto:"Francisco, Jacinta y Lucía: tres niños pastores a los que se les apareció la Virgen." },
+  { titulo:"San Maximiliano Kolbe", categoria:S, portada:"img/portadas/maximiliano-kolbe.jpg", amazon:A("B0H7925FM2"),
+    texto:"Dio su vida para salvar la de otro hombre. Un héroe de los de verdad." },
+
+  /* ---- Huellas de Santidad · dúos ---- */
+  { titulo:"San Ignacio de Loyola + San Juan Bosco", subtitulo:"Educar para cambiar el mundo", categoria:S, portada:"img/portadas/duo-ignacio-bosco.jpg", amazon:A("B0HL8T7PVZ"),
+    personas:["San Ignacio de Loyola","San Juan Bosco"],
+    texto:"Uno sembró colegios por medio mundo; el otro llenó Turín de chavales felices." },
+  { titulo:"San Martín de Tours + San Antonio de Padua", subtitulo:"Un corazón generoso", categoria:S, portada:"img/portadas/duo-martin-antonio.jpg", amazon:A("B0HM149CRF"),
+    personas:["San Martín de Tours","San Antonio de Padua"],
+    texto:"Dos santos que lo daban todo: uno, media capa; el otro, su tiempo y su palabra." },
+  { titulo:"San Francisco de Asís + Santa Teresa de Lisieux", subtitulo:"La alegría de lo sencillo", categoria:S, portada:"img/portadas/duo-francisco-teresita.jpg", amazon:A("B0HL7G47HR"),
+    personas:["San Francisco de Asís","Santa Teresa de Lisieux"],
+    texto:"Para ser feliz no hace falta mucho. Estos dos lo sabían mejor que nadie." },
+
+  /* ---- Huellas de Santidad · dúos próximamente ---- */
+  { titulo:"Santa Teresa de Jesús + Santa Catalina de Siena", subtitulo:"Mujeres con gran voz", categoria:S, amazon:null, portada:"img/portadas/duo-teresa-catalina.jpg",
+    personas:["Santa Teresa de Jesús","Santa Catalina de Siena"],
+    texto:"Dos mujeres que no se callaban ante nada: escribieron, viajaron y dieron consejos a reyes y papas." },
+  { titulo:"Santa Faustina + Santa Rosa de Lima", subtitulo:"Un corazón que confía", categoria:S, amazon:null, portada:"img/portadas/duo-faustina-rosa.jpg",
+    personas:["Santa Faustina","Santa Rosa de Lima"],
+    texto:"Una monja polaca y la primera santa de América: dos corazones que lo confiaron todo a Dios." },
+  { titulo:"San Patricio + San Junípero Serra", subtitulo:"Una misión sin fronteras", categoria:S, amazon:null, portada:"img/portadas/duo-patricio-junipero.jpg",
+    personas:["San Patricio","San Junípero Serra"],
+    texto:"De Irlanda a California: dos misioneros que cruzaron mares para llevar la fe." },
+  { titulo:"Santa Juana de Arco + San Maximiliano Kolbe", subtitulo:"Valientes hasta el final", categoria:S, amazon:null, portada:"img/portadas/duo-juana-kolbe.jpg",
+    personas:["Santa Juana de Arco","San Maximiliano Kolbe"],
+    texto:"Una chica con armadura y un fraile con gafas. Los dos, valientes de los de verdad." },
+  { titulo:"San Juan Diego + Pastorcitos de Fátima", subtitulo:"De la mano de María", categoria:S, amazon:null, portada:"img/portadas/duo-juandiego-pastorcitos.jpg",
+    personas:["San Juan Diego","Pastorcitos de Fátima"],
+    texto:"Un indígena de México y tres pastorcitos de Portugal a los que visitó la Virgen." },
+  { titulo:"San Juan Pablo II + Santa Teresa de Calcuta", subtitulo:"Santos del siglo XX", categoria:S, amazon:null, portada:"img/portadas/duo-jp2-calcuta.jpg",
+    personas:["San Juan Pablo II","Santa Teresa de Calcuta"],
+    texto:"Un Papa viajero y una monja que cuidaba de los más pobres. ¡Y se conocieron en persona!" },
+
+  /* ---- Todo por la ciencia · dúos ---- */
+  { titulo:"Santiago Ramón y Cajal + Severo Ochoa", subtitulo:"Los secretos de la vida", categoria:C, portada:"img/portadas/duo-cajal-ochoa.jpg", amazon:A("B0HNMRB5RT"),
+    personas:["Santiago Ramón y Cajal","Severo Ochoa"],
+    texto:"Dos españoles con Premio Nobel: uno descubrió las neuronas y el otro, secretos del ARN." },
+  { titulo:"Marie Curie + Rosalind Franklin", subtitulo:"Mujeres que iluminaron la ciencia", categoria:C, portada:"img/portadas/duo-curie-franklin.jpg", amazon:A("B0HN43T4Z3"),
+    personas:["Marie Curie","Rosalind Franklin"],
+    texto:"Dos científicas que vieron lo invisible: la radiactividad y la forma del ADN." },
+  { titulo:"Albert Einstein + Isaac Newton", subtitulo:"Los secretos del universo", categoria:C, portada:"img/portadas/duo-einstein-newton.jpg", amazon:A("B0HMZLNKNQ"),
+    personas:["Albert Einstein","Isaac Newton"],
+    texto:"Una manzana, la luz y el tiempo: dos genios que se hicieron las preguntas más grandes." },
+  { titulo:"Jane Goodall + Charles Darwin", subtitulo:"La vida en la Tierra", categoria:C, portada:"img/portadas/duo-goodall-darwin.jpg", amazon:A("B0HNVY63T6"),
+    personas:["Jane Goodall","Charles Darwin"],
+    texto:"Chimpancés, pinzones y muchas preguntas sobre todos los seres que viven en la Tierra." },
+
+  /* ---- Todo por la ciencia · dúos próximamente ---- */
+  { titulo:"Nikola Tesla + Ada Lovelace", subtitulo:"Inventando el futuro", categoria:C, amazon:null, portada:"img/portadas/duo-tesla-lovelace.jpg",
+    personas:["Nikola Tesla","Ada Lovelace"],
+    texto:"Él soñaba con llevar la electricidad a todas partes; ella escribió el primer programa… ¡antes de que existieran los ordenadores!" },
+  { titulo:"Galileo Galilei + Stephen Hawking", subtitulo:"Exploradores del universo", categoria:C, amazon:null, portada:"img/portadas/duo-galileo-hawking.jpg",
+    personas:["Galileo Galilei","Stephen Hawking"],
+    texto:"Uno apuntó su telescopio al cielo; el otro viajó con la mente hasta los agujeros negros." },
+  { titulo:"Katherine Johnson + Alan Turing", subtitulo:"El poder de los números", categoria:C, amazon:null, portada:"img/portadas/duo-johnson-turing.jpg",
+    personas:["Katherine Johnson","Alan Turing"],
+    texto:"Ella calculaba rutas al espacio; él imaginó cómo pensarían los ordenadores. Números con superpoderes." },
+  { titulo:"Margarita Salas + Gabriela Morreale", subtitulo:"Ciencia que transforma vidas", categoria:C, amazon:null, portada:"img/portadas/duo-salas-morreale.jpg",
+    personas:["Margarita Salas","Gabriela Morreale"],
+    texto:"Dos científicas españolas: una abrió camino en el estudio del ADN y la otra impulsó la prueba del talón de los bebés." },
+  { titulo:"Alexander Fleming + Louis Pasteur", subtitulo:"Ciencia que transforma vidas", categoria:C, amazon:null, portada:"img/portadas/duo-fleming-pasteur.jpg",
+    personas:["Alexander Fleming","Louis Pasteur"],
+    texto:"Un moho olvidado y unas vacunas valientes: así salvaron millones de vidas." },
+  { titulo:"Maria Sibylla Merian + Gregor Mendel", subtitulo:"Los secretos de las plantas", categoria:C, amazon:null, portada:"img/portadas/duo-merian-mendel.jpg",
+    personas:["Maria Sibylla Merian","Gregor Mendel"],
+    texto:"Ella dibujaba orugas y mariposas; él cultivaba guisantes. Y los dos destaparon secretos de la naturaleza." },
+  { titulo:"George Washington Carver + Antonio de Ulloa", subtitulo:"Los tesoros de la Tierra", categoria:C, amazon:null, portada:"img/portadas/duo-carver-ulloa.jpg",
+    personas:["George Washington Carver","Antonio de Ulloa"],
+    texto:"Un genio de los cacahuetes y el marino español que dio a conocer el platino en Europa." },
+
+  /* ---- Todo por la ciencia · individuales próximamente ---- */
+  { titulo:"Santiago Ramón y Cajal", categoria:C, amazon:null, portada:"img/portadas/ramon-y-cajal.jpg",
+    texto:"De niño trasto a Premio Nobel. Descubrió cómo funciona nuestro cerebro." },
+  { titulo:"Marie Curie", categoria:C, amazon:null, portada:"img/portadas/marie-curie.jpg",
+    texto:"La primera persona en ganar dos premios Nobel. ¡Y en dos ciencias distintas!" },
+  { titulo:"Rosalind Franklin", categoria:C, amazon:null, portada:"img/portadas/rosalind-franklin.jpg",
+    texto:"Con una foto de rayos X ayudó a descubrir la forma del ADN: una escalera de caracol." },
+  { titulo:"Albert Einstein", categoria:C, amazon:null, portada:"img/portadas/albert-einstein.jpg",
+    texto:"El de los pelos locos que cambió lo que sabemos de la luz, el tiempo y el espacio." },
+  { titulo:"Isaac Newton", categoria:C, amazon:null, portada:"img/portadas/isaac-newton.jpg",
+    texto:"Una manzana, mucha curiosidad y ¡zas!: la ley de la gravedad." },
+  { titulo:"Jane Goodall", categoria:C, amazon:null, portada:"img/portadas/jane-goodall.jpg",
+    texto:"Se fue a la selva con un cuaderno y acabó siendo amiga de los chimpancés." },
+  { titulo:"Charles Darwin", categoria:C, amazon:null, portada:"img/portadas/charles-darwin.jpg",
+    texto:"Dio la vuelta al mundo en barco y entendió cómo cambian los seres vivos." },
+  { titulo:"Severo Ochoa", categoria:C, amazon:null, portada:"img/portadas/severo-ochoa.jpg",
+    texto:"Premio Nobel por descubrir cómo se fabrica el ARN, una de las moléculas de la vida." },
+  { titulo:"Nikola Tesla", categoria:C, amazon:null, portada:"img/portadas/nikola-tesla.jpg",
+    texto:"Un inventor con mil ideas eléctricas que soñaba con iluminar el mundo entero." },
+  { titulo:"Ada Lovelace", categoria:C, amazon:null, portada:"img/portadas/ada-lovelace.jpg",
+    texto:"Escribió el primer programa de ordenador… ¡cuando los ordenadores aún no existían!" },
+  { titulo:"Galileo Galilei", categoria:C, amazon:null, portada:"img/portadas/galileo-galilei.jpg",
+    texto:"Apuntó su telescopio al cielo y descubrió lunas que nadie había visto antes." },
+  { titulo:"Stephen Hawking", categoria:C, amazon:null, portada:"img/portadas/stephen-hawking.jpg",
+    texto:"Desde su silla de ruedas, viajó con la mente hasta los agujeros negros." },
+  { titulo:"Katherine Johnson", categoria:C, amazon:null, portada:"img/portadas/katherine-johnson-ciencia.jpg",
+    texto:"Lo contaba todo. Sus cálculos ayudaron a llevar astronautas al espacio." },
+  { titulo:"Alan Turing", categoria:C, amazon:null, portada:"img/portadas/alan-turing.jpg",
+    texto:"Un genio de los números que imaginó cómo pensarían los ordenadores." },
+  { titulo:"Margarita Salas", categoria:C, amazon:null, portada:"img/portadas/margarita-salas.jpg",
+    texto:"Una científica asturiana que descubrió una herramienta clave para estudiar el ADN." },
+  { titulo:"Gabriela Morreale", categoria:C, amazon:null, portada:"img/portadas/gabriela-morreale.jpg",
+    texto:"Gracias a ella, en España a todos los bebés se les hace la prueba del talón al nacer." },
+  { titulo:"Alexander Fleming", categoria:C, amazon:null, portada:"img/portadas/alexander-fleming.jpg",
+    texto:"Se dejó un experimento olvidado y… ¡descubrió la penicilina!" },
+  { titulo:"Louis Pasteur", categoria:C, amazon:null, portada:"img/portadas/louis-pasteur.jpg",
+    texto:"Descubrió que los microbios causan enfermedades e inventó vacunas que salvaron vidas." },
+  { titulo:"Maria Sibylla Merian", categoria:C, amazon:null, portada:"img/portadas/maria-sibylla-merian.jpg",
+    texto:"Dibujaba orugas y mariposas y descubrió cómo se transforman. ¡Artista y científica!" },
+  { titulo:"Antonio de Ulloa", categoria:C, amazon:null, portada:"img/portadas/antonio-de-ulloa.jpg",
+    texto:"Marino y explorador español que dio a conocer el platino en Europa." },
+  { titulo:"Gregor Mendel", categoria:C, amazon:null, portada:"img/portadas/gregor-mendel.jpg",
+    texto:"Un fraile que cultivaba guisantes en su huerto y descubrió cómo se heredan los rasgos." },
+  { titulo:"George Washington Carver", categoria:C, amazon:null, portada:"img/portadas/george-washington-carver.jpg",
+    texto:"El genio de los cacahuetes: inventó cientos de usos para ellos y ayudó a los agricultores." },
+
+  /* ---- Grandes de la música · dúos ---- */
+  { titulo:"Mozart + Beethoven", subtitulo:"Dos genios, mil notas", categoria:M, amazon:A("B0HPSMQTPP"), portada:"img/portadas/duo-mozart-beethoven.jpg",
+    personas:["Wolfgang Amadeus Mozart","Ludwig van Beethoven"],
+    texto:"Uno componía de niño; el otro siguió componiendo sin poder oír. Pura magia." },
+
+  { titulo:"Ella Fitzgerald + Aretha Franklin", subtitulo:"¡Aquí mandan las reinas!", categoria:M, amazon:A("B0HQ7GT58S"), portada:"img/portadas/duo-fitzgerald-franklin.jpg",
+    personas:["Ella Fitzgerald","Aretha Franklin"],
+    texto:"La primera dama del jazz y la reina del soul. Dos voces que pusieron al mundo a bailar." },
+
+  /* ---- Grandes de la música · próximamente ---- */
+  { titulo:"Wolfgang Amadeus Mozart", categoria:M, amazon:null, portada:"img/portadas/mozart.jpg",
+    texto:"Con cinco años ya componía música. ¡Y no paró hasta llenar el mundo de melodías!" },
+  { titulo:"Ludwig van Beethoven", categoria:M, amazon:null, portada:"img/portadas/beethoven.jpg",
+    texto:"Se quedó sordo y aun así compuso algunas de las sinfonías más famosas de la historia." },
+  { titulo:"Ella Fitzgerald", categoria:M, amazon:null, portada:"img/portadas/ella-fitzgerald.jpg",
+    texto:"La primera dama del jazz: con su voz podía imitar trompetas, saxos ¡y lo que le echaran!" },
+  { titulo:"Aretha Franklin", categoria:M, amazon:null, portada:"img/portadas/aretha-franklin.jpg",
+    texto:"Empezó cantando en la iglesia de su padre y acabó siendo la reina del soul." },
+
+  /* ---- Próximamente (amazon: null) ---- */
+  { titulo:"Manuel de Falla", categoria:M, amazon:null, foto:true, portada:"img/portadas/manuel-de-falla.webp",
+    texto:"Convirtió los sonidos de Andalucía en música que se escucha en medio mundo." },
+  { titulo:"Joaquín Sorolla", categoria:"muchas-pinceladas", amazon:null, foto:true, portada:"img/portadas/sorolla.webp",
+    texto:"Pintaba la luz del mar como nadie. Y de peque, no dejaba un cuaderno sin dibujos." },
+];
+
+// Libros que salen en el hero
+const HERO = [
+  { src:"img/portadas/ramon-y-cajal.webp", alt:"Santiago Ramón y Cajal" },
+  { src:"img/portadas/teresa-de-calcuta.webp", alt:"Santa Teresa de Calcuta" },
+  { src:"img/portadas/katherine-johnson.webp", alt:"Katherine Johnson" },
+  { src:"img/portadas/sorolla.webp", alt:"Joaquín Sorolla" },
+  { src:"img/portadas/manuel-de-falla.webp", alt:"Manuel de Falla" },
+];
+/* ========================================================= */
+
+const ico = k => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${ICONOS[k]}</svg>`;
+const use = id => `<svg class="ico"><use href="#${id}"/></svg>`;
+const tone = c => { const k = COLORES[c]; return `--tint:${k.tint};--dark:${k.dark};--cv:${k.cv};--band:${k.band}`; };
+const cat = slug => CATEGORIAS.find(c => c.slug === slug) || {};
+const gente = l => l.personas || [l.titulo];
+const esDuo = l => gente(l).length > 1;
+const aLaVenta = l => !!l.amazon;
+
+// Personas únicas con libro a la venta
+const personasDe = slug => new Set(LIBROS.filter(l => aLaVenta(l) && (!slug || l.categoria === slug)).flatMap(gente)).size;
+const totalPersonas = personasDe();
+document.querySelectorAll("[data-total]").forEach(n => n.textContent = totalPersonas);
+
+function estado(c){
+  if (c.estado === "disponible") return `<span class="status pill">${use("i-people")}${personasDe(c.slug)} personas</span>`;
+  if (c.estado === "fecha")      return `<span class="status">${use("i-cal")}${c.fecha}</span>`;
+  return `<span class="status">${use("i-clock")}Disponible próximamente</span>`;
+}
+
+/* Cinta */
+const tk = CATEGORIAS.map(c => `<span><i style="background:${COLORES[c.color].cv}"></i>${c.nombre}</span>`).join("");
+document.getElementById("ticker").innerHTML = tk + tk;
+
+/* Hero */
+document.getElementById("shelf").insertAdjacentHTML("afterbegin",
+  HERO.map(h => `<img src="${h.src}" alt="Libro de Imparables: ${h.alt}" width="600" height="600">`).join(""));
+
+/* Colecciones */
+document.getElementById("cats").innerHTML = CATEGORIAS.map(c => `
+  <button class="cat" data-filtro="${c.slug}" style="${tone(c.color)}">
+    <span class="sq">${ico(c.icono)}</span>
+    <span><h3>${c.nombre}</h3>${estado(c)}</span>
+  </button>`).join("");
+
+/* Características */
+document.getElementById("feats").innerHTML = CARACTERISTICAS.map(f => `
+  <div class="feat" style="${tone(f.color)}">
+    <span class="sq">${ico(f.icono)}</span>
+    <h3>${f.titulo}</h3><p>${f.texto}</p>
+  </div>`).join("");
+
+/* Portada: imagen real o generada con los colores de la colección */
+function portada(l, c){
+  if (l.portada) return `<img class="${l.foto ? "foto" : "flat"}" src="${l.portada}" alt="Portada de ${l.titulo}" loading="lazy" width="600" height="600">`;
+  const nombres = gente(l).map(n => `<span>${n}</span>`).join(esDuo(l) ? '<em>+</em>' : "");
+  return `<div class="gcover${esDuo(l) ? " duo" : ""}" role="img" aria-label="Portada de ${l.titulo}">
+    <img class="lg" src="img/logo.png" alt="">
+    <span class="cpill">${c.nombre}</span>
+    <div class="band">${nombres}</div>
+    ${l.subtitulo ? `<div class="csub">${l.subtitulo}</div>` : ""}
+  </div>`;
+}
+
+/* Filtros + libros */
+const NUM_NOVEDADES = 6;
+// Orden de publicación: usa "fecha" si el libro la tiene; si no, el código de Amazon (los más nuevos son mayores)
+const fechaDe = l => l.fecha || (l.amazon ? l.amazon.split("/dp/")[1] : "");
+const NOVEDADES = LIBROS.filter(aLaVenta).sort((a,b) => fechaDe(b).localeCompare(fechaDe(a))).slice(0, NUM_NOVEDADES);
+const F = { col:"novedades", fmt:"todos" };
+const filters = document.getElementById("filters");
+filters.innerHTML = `
+  <div class="fgroup" role="group" aria-label="Colección">
+    <button class="chip star" data-col="novedades">${use("i-spark")}Últimas publicaciones</button>
+    <button class="chip" data-col="todos">Todos los libros</button>
+    ${CATEGORIAS.map(c => `<button class="chip" data-col="${c.slug}" style="${tone(c.color)}"><i></i>${c.nombre}</button>`).join("")}
+  </div>
+  <div class="fbar">
+    <div class="count" id="count"></div>
+    <div class="seg" role="group" aria-label="Formato">
+      <span class="seg-label">Formato</span>
+      <button data-fmt="todos">Todos</button><button data-fmt="ind">Individuales</button><button data-fmt="duo">Dúos</button>
+    </div>
+  </div>`;
+
+function pintaLibros(){
+  filters.querySelectorAll("[data-col]").forEach(b => b.setAttribute("aria-pressed", b.dataset.col === F.col));
+  filters.querySelectorAll("[data-fmt]").forEach(b => b.setAttribute("aria-pressed", b.dataset.fmt === F.fmt));
+  let lista = F.col === "novedades" ? NOVEDADES.slice()
+            : LIBROS.filter(l => F.col === "todos" || l.categoria === F.col).sort((a,b) => aLaVenta(b) - aLaVenta(a));
+  lista = lista.filter(l => F.fmt === "todos" || (F.fmt === "duo") === esDuo(l));
+  const titulo = F.col === "novedades" ? "Últimas publicaciones" : F.col === "todos" ? "Todos los libros" : cat(F.col).nombre;
+  document.getElementById("count").innerHTML = `${titulo}<small>${lista.length} ${lista.length === 1 ? "libro" : "libros"}${F.col === "novedades" ? ", recién salidos de la imprenta" : ""}</small>`;
+  const box = document.getElementById("books");
+  if (!lista.length){
+    const hayCol = F.col === "novedades" || F.col === "todos" || LIBROS.some(l => l.categoria === F.col);
+    const c = cat(F.col);
+    box.innerHTML = hayCol
+      ? `<div class="empty"><h3>Por aquí no hay nada… todavía</h3><p>Prueba con otro formato o deja que te avisemos cuando salgan más.</p><a href="#avisos" class="btn btn-primary">${use("i-bell")}Avísame</a></div>`
+      : `<div class="empty"><h3>${c.nombre} está en el horno</h3><p>Los libros de esta colección están a punto de salir. ¿Te avisamos?</p><a href="#avisos" class="btn btn-primary">${use("i-bell")}Avísame</a></div>`;
+    return;
+  }
+  box.innerHTML = lista.map(l => {
+    const c = cat(l.categoria), ok = aLaVenta(l);
+    return `<article class="book${ok ? "" : " soon"}" style="${tone(c.color)}">
+      <a class="tile" href="${ok ? l.amazon : "#avisos"}" ${ok ? 'target="_blank" rel="noopener"' : ""} aria-label="${ok ? "Comprar" : "Avísame de"} ${l.titulo}">
+        ${ok ? "" : '<span class="flag soon">Próximamente</span>'}
+        ${portada(l, c)}
+      </a>
+      <div class="meta">
+        <div class="col">${c.nombre}</div>
+        <h3>${l.titulo}</h3>
+        ${l.subtitulo ? `<div class="sub">${l.subtitulo}</div>` : ""}
+        <p>${l.texto}</p>
+        ${ok
+          ? `<a class="buy" href="${l.amazon}" target="_blank" rel="noopener">${use("i-cart")}<span>Comprar<span class="long"> en Amazon</span></span></a>`
+          : `<a class="buy soon" href="#avisos">${use("i-bell")}Avísame</a>`}
+      </div>
+    </article>`;
+  }).join("");
+}
+filters.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.col) F.col = b.dataset.col;
+  if (b.dataset.fmt) F.fmt = b.dataset.fmt;
+  pintaLibros();
+});
+document.getElementById("cats").addEventListener("click", e => {
+  const b = e.target.closest(".cat"); if (!b) return;
+  F.col = b.dataset.filtro; F.fmt = "todos"; pintaLibros();
+  document.getElementById("libros").scrollIntoView({behavior:"smooth"});
+});
+pintaLibros();
+
+/* Footer */
+const half = Math.ceil(CATEGORIAS.length/2);
+const li = c => `<li><a href="#colecciones">${c.nombre}</a></li>`;
+document.getElementById("footCats1").innerHTML = CATEGORIAS.slice(0,half).map(li).join("");
+document.getElementById("footCats2").innerHTML = CATEGORIAS.slice(half).map(li).join("");
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+document.getElementById("newsForm").addEventListener("submit", e => {
+  e.preventDefault();
+  e.target.innerHTML = '<p style="color:var(--ink);font-weight:800;padding:12px 18px">¡Hecho! Serás de los primeros en saberlo.</p>';
+});
+
+const btn = document.getElementById("menuBtn"), nav = document.getElementById("navLinks");
+btn.onclick = () => { const o = nav.classList.toggle("open"); btn.setAttribute("aria-expanded", o); };
+nav.querySelectorAll("a").forEach(a => a.onclick = () => nav.classList.remove("open"));
+const hdr = document.querySelector("header");
+addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 8), {passive:true});
+</script>
+</body>
+</html>
