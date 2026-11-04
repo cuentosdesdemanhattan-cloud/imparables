@@ -223,6 +223,7 @@
   .stat:hover{transform:rotate(0) scale(1.04)}
 
   /* Avisos */
+  #avisos{scroll-margin-top:100px}
   .news{background:linear-gradient(115deg,#ee0979 0%,#ff6a00 100%);border-radius:36px;padding:64px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;color:#fff;position:relative;overflow:hidden;isolation:isolate}
   .news h2{color:#fff;font-size:clamp(34px,4.2vw,52px);margin-bottom:12px}
   .news p{color:rgba(255,255,255,.94);font-size:19px}
@@ -241,6 +242,21 @@
   .news .legal-info{font-size:15px;line-height:1.45}
   .legal-info a{font-weight:500}
   .form-msg:empty{display:none}
+  .interes[hidden]{display:none}
+  .interes{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.55);border-radius:16px;padding:12px 14px;font-size:16px;color:#fff;animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+  .interes-t{display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:8px}
+  .interes .ico{font-size:18px;flex:none}
+  .chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+  .chips li{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#C2185B;font-weight:700;font-size:14px;line-height:1.25;padding:5px 6px 5px 12px;border-radius:999px}
+  .chips button{width:22px;height:22px;border-radius:50%;border:0;background:#FCE4EF;color:#C2185B;font-weight:800;font-size:12px;cursor:pointer;flex:none}
+  .chips button:hover{background:#C2185B;color:#fff}
+  .buy.soon.on{background:var(--ink);color:#fff;box-shadow:none}
+  .lista-flot{position:fixed;left:50%;bottom:20px;z-index:40;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:12px 14px 12px 18px;border-radius:999px;box-shadow:0 18px 40px -16px rgba(36,32,63,.7);font-size:16px;transform:translateX(-50%);animation:sube .35s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
+  .lista-flot[hidden]{display:none}
+  .lista-flot .ico{font-size:18px}
+  .lista-flot b{background:linear-gradient(115deg,#ee0979,#ff6a00);padding:7px 14px;border-radius:999px;font-weight:800}
+  @keyframes sube{from{transform:translate(-50%,20px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+  @keyframes pop{from{transform:scale(.96);opacity:0}to{transform:none;opacity:1}}
   .form-msg.ok{color:#fff;background:rgba(255,255,255,.2)}
   .news .done{color:#fff;font-weight:800;font-size:20px}
   .sr{position:absolute;left:-9999px}
@@ -453,6 +469,10 @@
       <p>Un correo cuando salga libro nuevo y punto. Ni spam ni rollos. Palabra de imparable.</p>
     </div>
     <form id="newsForm">
+      <div class="interes" id="interes" hidden>
+        <div class="interes-t"><svg class="ico"><use href="#i-bell"/></svg> Te avisaremos de:</div>
+        <ul class="chips" id="interesLista"></ul>
+      </div>
       <div class="pill">
         <label for="email" class="sr">Tu correo</label>
         <input id="email" name="email" type="email" required placeholder="tu@correo.com" autocomplete="email">
@@ -466,6 +486,12 @@
   </div>
 </section>
 </main>
+
+<a href="#avisos" class="lista-flot" id="listaFlot" hidden>
+  <svg class="ico"><use href="#i-bell"/></svg>
+  <span id="listaFlotTxt"></span>
+  <b>Avisadme →</b>
+</a>
 
 <footer>
   <div class="wrap">
@@ -843,13 +869,13 @@ function pintaLibros(){
     const c = cat(F.col);
     box.innerHTML = hayCol
       ? `<div class="empty"><h3>Por aquí no hay nada… todavía</h3><p>Prueba con otro formato o deja que te avisemos cuando salgan más.</p><a href="#avisos" class="btn btn-primary">${use("i-bell")}Avísame</a></div>`
-      : `<div class="empty"><h3>${c.nombre} está en el horno</h3><p>Los libros de esta colección están a punto de salir. ¿Te avisamos?</p><a href="#avisos" class="btn btn-primary">${use("i-bell")}Avísame</a></div>`;
+      : `<div class="empty"><h3>${c.nombre} está en el horno</h3><p>Los libros de esta colección están a punto de salir. ¿Te avisamos?</p>${botonAviso("Colección " + c.nombre, "btn btn-primary")}</div>`;
     return;
   }
   box.innerHTML = lista.map(l => {
     const c = cat(l.categoria), ok = aLaVenta(l);
     return `<article class="book${ok ? "" : " soon"}" style="${tone(c.color)}">
-      <a class="tile" href="${ok ? l.amazon : "#avisos"}" ${ok ? 'target="_blank" rel="noopener"' : ""} aria-label="${ok ? "Comprar" : "Avísame de"} ${l.titulo}">
+      <a class="tile" href="${ok ? l.amazon : "#avisos"}" ${ok ? 'target="_blank" rel="noopener"' : `data-libro="${l.titulo.replace(/"/g,"&quot;")}"`} aria-label="${ok ? "Comprar" : "Avísame de"} ${l.titulo}">
         ${ok ? "" : '<span class="flag soon">Próximamente</span>'}
         ${portada(l, c)}
       </a>
@@ -860,7 +886,7 @@ function pintaLibros(){
         <p>${l.texto}</p>
         ${ok
           ? `<a class="buy" href="${l.amazon}" target="_blank" rel="noopener">${use("i-cart")}<span>Comprar<span class="long"> en Amazon</span></span></a>`
-          : `<a class="buy soon" href="#avisos">${use("i-bell")}Avísame</a>`}
+          : botonAviso(l.titulo)}
       </div>
     </article>`;
   }).join("");
@@ -902,7 +928,44 @@ document.getElementById("footCats1").innerHTML = CATEGORIAS.slice(0,half).map(li
 document.getElementById("footCats2").innerHTML = CATEGORIAS.slice(half).map(li).join("");
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-/* Avísame: guarda el correo en Google Sheets */
+/* Avísame: lista de libros de los que avisar + envío a Google Sheets */
+const LISTA = new Set();
+const escAttr = t => t.replace(/&/g,"&amp;").replace(/"/g,"&quot;");
+function botonAviso(libro, clase = "buy soon"){
+  const on = LISTA.has(libro);
+  return `<a class="${clase}${on ? " on" : ""}" href="#avisos" data-libro="${escAttr(libro)}" aria-pressed="${on}">${use(on ? "i-check" : "i-bell")}${on ? "En tu lista" : "Avísame"}</a>`;
+}
+function pintaLista(){
+  document.querySelectorAll("a[data-libro]:not(.tile)").forEach(el => {
+    const tmp = document.createElement("div");
+    tmp.innerHTML = botonAviso(el.dataset.libro, el.classList.contains("btn") ? "btn btn-primary" : "buy soon");
+    el.replaceWith(tmp.firstElementChild);
+  });
+  const libros = [...LISTA];
+  document.getElementById("interes").hidden = !libros.length;
+  document.getElementById("interesLista").innerHTML = libros.map(t =>
+    `<li>${t}<button type="button" data-quitar="${escAttr(t)}" aria-label="Quitar ${escAttr(t)}">✕</button></li>`).join("");
+  const n = libros.length;
+  document.getElementById("listaFlotTxt").textContent = n === 1 ? "1 libro en tu lista" : `${n} libros en tu lista`;
+  actualizaFlot();
+}
+const flot = document.getElementById("listaFlot");
+let avisosVisible = false;
+function actualizaFlot(){ flot.hidden = !LISTA.size || avisosVisible; }
+new IntersectionObserver(es => { avisosVisible = es[0].isIntersecting; actualizaFlot(); }, { threshold:.25 })
+  .observe(document.getElementById("avisos"));
+document.addEventListener("click", e => {
+  const q = e.target.closest("[data-quitar]");
+  if (q){ LISTA.delete(q.dataset.quitar); pintaLista(); return; }
+  const a = e.target.closest("[data-libro]"); if (!a) return;
+  e.preventDefault();
+  const libro = a.dataset.libro;
+  if (a.classList.contains("tile")) LISTA.add(libro);
+  else LISTA.has(libro) ? LISTA.delete(libro) : LISTA.add(libro);
+  document.getElementById("formMsg").textContent = "";
+  pintaLista();
+});
+
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwnveE-zopFmg44KSbnduIbZ0b13-vGIPbGgMQpN6NuryBWJUDdgGgEzI_DrJ7UniKn/exec"; // URL de la app web de Google Apps Script (se rellena en el build)
 document.getElementById("newsForm").addEventListener("submit", async e => {
   e.preventDefault();
@@ -914,13 +977,22 @@ document.getElementById("newsForm").addEventListener("submit", async e => {
   btn.disabled = true; btn.textContent = "Enviando…";
   try {
     if (!SHEETS_URL) throw new Error("Falta SHEETS_URL");
-    await fetch(SHEETS_URL, { method:"POST", mode:"no-cors",
-      body: new URLSearchParams({ email: f.email.value.trim(), consentimiento: "si", origen: location.hostname || "web" }) });
     const apuntado = f.email.value.trim();
-    f.reset();
+    const libros = LISTA.size ? [...LISTA] : ["Cualquier libro nuevo"];
+    // una petición por libro → una fila por libro en la hoja (el script evita duplicados)
+    for (const libro of libros) {
+      await fetch(SHEETS_URL, { method:"POST", mode:"no-cors",
+        body: new URLSearchParams({ email: apuntado, libro, consentimiento: "si", origen: location.hostname || "web" }) });
+    }
+    const n = LISTA.size;
+    f.reset(); LISTA.clear(); pintaLista();
     btn.disabled = false; btn.textContent = "Avísame";
     msg.className = "form-msg ok";
-    msg.textContent = `¡Hecho! Avisaremos a ${apuntado} en cuanto salga un libro nuevo. ¿Quieres apuntar otro email? Escríbelo arriba.`;
+    msg.textContent = n === 0
+      ? `¡Hecho! Avisaremos a ${apuntado} en cuanto salga un libro nuevo. ¿Quieres apuntar otro email? Escríbelo arriba.`
+      : n === 1
+        ? `¡Hecho! Avisaremos a ${apuntado} cuando salga «${libros[0]}». ¿Quieres apuntar otro email?`
+        : `¡Hecho! Avisaremos a ${apuntado} cuando salga cada uno de los ${n} libros que has elegido. ¿Quieres apuntar otro email?`;
   } catch (err) {
     btn.disabled = false; btn.textContent = "Avísame";
     msg.className = "form-msg";
