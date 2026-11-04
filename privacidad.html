@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad | Imparables</title>
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<style>
+  @font-face{font-family:"Dosis";src:url("fonts/dosis-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+  @font-face{font-family:"Rum Raisin";src:url("fonts/rum-raisin-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+  :root{--primary:#FF6060;--primary-dark:#E94848;--grad:linear-gradient(135deg,#FF4B6E 0%,#FF6060 45%,#FF8A55 100%);--ink:#24203F;--text:#4A4563;--muted:#8A86A0;--line:#EEEAF3;--soft:#FAF8F6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Dosis",system-ui,sans-serif;font-size:19px;font-weight:500;line-height:1.65;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+  .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+  header{background:linear-gradient(90deg,#FF4B6E 0%,#FF6060 50%,#FF7458 100%);color:#fff}
+  .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand img{height:38px;width:auto;display:block}
+  .back{display:inline-flex;align-items:center;gap:8px;font-weight:800;text-decoration:none;background:#fff;color:var(--primary);padding:10px 20px;border-radius:999px;font-size:16px}
+  .hero{background:var(--grad);color:#fff;padding:40px 0 48px}
+  h1{font-family:"Rum Raisin",system-ui,sans-serif;font-weight:400;font-size:clamp(38px,5vw,58px);line-height:1.05}
+  .hero p{margin-top:10px;color:rgba(255,255,255,.92)}
+  main{padding:56px 0 24px}
+  .doc{max-width:760px}
+  .doc h2{font-family:"Rum Raisin",system-ui,sans-serif;font-weight:400;color:var(--primary);font-size:30px;line-height:1.1;margin:44px 0 12px}
+  .doc h2:first-child{margin-top:0}
+  .doc p,.doc ul{margin-bottom:14px}
+  .doc ul{padding-left:22px}
+  .doc li{margin-bottom:6px}
+  .doc strong{color:var(--ink)}
+  .doc a{color:var(--primary-dark);font-weight:700;text-underline-offset:3px}
+  .summary{background:var(--soft);border-radius:22px;padding:24px 26px;margin-bottom:8px}
+  .summary dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px}
+  .summary dt{font-weight:800;color:var(--ink)}
+  .summary dd{margin:0}
+  .box{background:var(--ink);color:#fff;border-radius:28px;padding:36px;max-width:620px}
+  .box p{color:#D6D3E6;margin-bottom:18px}
+  .box form{display:grid;gap:12px}
+  .pill{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px}
+  .pill input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
+  .pill input:focus{outline:none}
+  .pill:focus-within{box-shadow:0 0 0 3px rgba(255,96,96,.6)}
+  .btn{font-family:"Dosis";font-weight:800;font-size:17px;padding:12px 24px;border-radius:999px;border:0;background:var(--primary);color:#fff;cursor:pointer;white-space:nowrap}
+  .btn:hover{background:var(--primary-dark)}
+  .btn:disabled{opacity:.7;cursor:wait}
+  .msg{font-weight:700;color:#FFB3B3;font-size:15px}
+  .msg:empty{display:none}
+  .done{font-weight:800;font-size:20px;color:#fff}
+  .sr{position:absolute;left:-9999px}
+  .updated{color:var(--muted);font-size:16px;margin-top:40px}
+  footer{background:var(--grad);color:#fff;margin-top:72px;padding:40px 0}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center;font-size:16px}
+  .foot img{height:34px;width:auto;display:block}
+  .foot nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+  .foot a{color:#fff;text-decoration:none}
+  .foot a:hover{text-decoration:underline;text-underline-offset:3px}
+  @media (max-width:600px){
+    .wrap{width:calc(100% - 32px)}
+    .nav{height:68px}.brand img{height:32px}
+    .back{padding:9px 14px;font-size:15px}
+    body{font-size:18px}
+    .summary dl{grid-template-columns:1fr;gap:2px}
+    .summary dd{margin-bottom:10px}
+    .box{padding:28px 20px}
+    .pill{flex-direction:column;border-radius:20px;padding:8px}
+    .pill input{padding:12px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand" aria-label="Imparables, inicio"><img src="img/logo.png" alt="Imparables" width="605" height="157"></a>
+    <a href="index.html" class="back">← Volver a la web</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap">
+    <h1>Política de privacidad</h1>
+    <p>Qué hacemos con tu email, explicado sin letra pequeña.</p>
+  </div>
+</section>
+<main class="wrap">
+  <div class="doc">
+
+
+    <p>Aquí te contamos qué datos recogemos cuando te apuntas para que te avisemos de los libros nuevos, para qué los usamos y qué puedes hacer con ellos. Resumiendo mucho: solo guardamos tu email, solo lo usamos para avisarte y puedes borrarlo cuando quieras.</p>
+
+    <h2>1. Quién es responsable de tus datos</h2>
+    <p>El responsable del tratamiento es <strong>Lucía de la Cruz Rodríguez</strong>, titular de la web y de la colección Imparables. Puedes escribirnos para cualquier tema de privacidad a <a href="mailto:cuentosdesdemanhattan@gmail.com">cuentosdesdemanhattan@gmail.com</a>.</p>
+
+    <h2>2. Qué datos recogemos</h2>
+    <p>Solo los que nos das tú:</p>
+    <ul>
+      <li><strong>Formulario «Avísame»:</strong> tu dirección de email, la fecha en que te apuntas y la constancia de que has dado tu consentimiento.</li>
+      <li><strong>Si nos escribes un email:</strong> tu dirección y lo que nos cuentes en el mensaje.</li>
+    </ul>
+    <p>No usamos cookies, ni herramientas de analítica, ni publicidad. Las tipografías y las imágenes de la web están alojadas en la propia web, sin llamadas a servicios externos.</p>
+
+    <h2>3. Para qué los usamos</h2>
+    <ul>
+      <li>Enviarte un aviso por email cuando publiquemos un libro nuevo. Nada más: no te mandaremos otro tipo de publicidad ni compartiremos tu email.</li>
+      <li>Responderte si nos escribes.</li>
+    </ul>
+
+    <h2>4. Base legal</h2>
+    <p>Tratamos tu email porque nos das tu <strong>consentimiento</strong> al marcar la casilla del formulario (artículo 6.1.a del Reglamento General de Protección de Datos, RGPD, y artículo 21 de la Ley 34/2002 de Servicios de la Sociedad de la Información, LSSI). Puedes retirarlo en cualquier momento, sin que eso afecte a lo hecho antes.</p>
+
+    <h2>5. Cuánto tiempo los guardamos</h2>
+    <p>Hasta que te des de baja. En ese momento borramos tu email de la lista. Si nos escribes, conservamos el mensaje el tiempo necesario para responderte.</p>
+
+    <h2>6. Quién más tiene acceso</h2>
+    <p>No vendemos ni cedemos tus datos a terceros. Para que la web funcione usamos estos proveedores:</p>
+    <ul>
+      <li><strong>Google</strong> (Google Sheets y Gmail): es donde guardamos la lista de emails y desde donde te escribimos.</li>
+      <li><strong>GitHub</strong> (GitHub Pages): aloja la web y, como cualquier servidor, puede registrar tu dirección IP por motivos técnicos y de seguridad.</li>
+    </ul>
+    <p>Ambas empresas tienen sede en Estados Unidos y están adheridas al <strong>Marco de Privacidad de Datos UE‑EE. UU.</strong>, que la Comisión Europea reconoce como garantía adecuada para estas transferencias internacionales.</p>
+    <p>Cuando pulsas «Comprar en Amazon» sales de esta web. A partir de ahí, Amazon trata tus datos según su propia política de privacidad.</p>
+
+    <h2>7. Tus derechos</h2>
+    <p>Puedes pedirnos en cualquier momento:</p>
+    <ul>
+      <li><strong>Acceso:</strong> saber qué datos tenemos tuyos.</li>
+      <li><strong>Rectificación:</strong> corregirlos si están mal.</li>
+      <li><strong>Supresión:</strong> que los borremos.</li>
+      <li><strong>Oposición y limitación</strong> del tratamiento.</li>
+      <li><strong>Portabilidad:</strong> recibirlos en un formato que puedas llevarte.</li>
+      <li><strong>Retirar tu consentimiento</strong>, es decir, darte de baja.</li>
+    </ul>
+    <p>Para darte de baja, usa la página <a href="baja.html">Darme de baja</a> o el enlace que aparece en cada email. Para todo lo demás, escríbenos a <a href="mailto:cuentosdesdemanhattan@gmail.com">cuentosdesdemanhattan@gmail.com</a> y te responderemos en el plazo de un mes como máximo.</p>
+    <p>Si crees que no hemos tratado bien tus datos, puedes presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> en <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+
+    <h2>8. Menores</h2>
+    <p>Los libros son para peques, pero la lista de avisos es para las personas adultas que los compran: madres, padres, familiares y docentes. Si tienes menos de 14 años, no te suscribas.</p>
+
+    <h2>9. Cambios en esta política</h2>
+    <p>Si cambiamos algo importante, lo publicaremos aquí con la fecha de actualización.</p>
+    <p class="updated">Última actualización: 4 de noviembre de 2026</p>
+
+  </div>
+</main>
+<footer>
+  <div class="wrap foot">
+    <a href="index.html"><img src="img/logo.png" alt="Imparables" width="605" height="157"></a>
+    <nav>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="baja.html">Darme de baja</a>
+      <a href="mailto:cuentosdesdemanhattan@gmail.com">Contacto</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

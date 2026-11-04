@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Imparables | Cuentos de personas reales que cambiaron el mundo</title>
 <meta name="description" content="Cuentos ilustrados sobre personas reales que cambiaron el mundo: santos, científicos, músicos, artistas, inventores, deportistas y líderes. Para que tus peques descubran que ellos también pueden.">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700;800&family=Rum+Raisin&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <style>
+  /* Tipografías alojadas en la propia web (sin llamadas a Google Fonts) */
+  @font-face{font-family:"Dosis";src:url("fonts/dosis-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+  @font-face{font-family:"Rum Raisin";src:url("fonts/rum-raisin-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
   :root{
     --primary:#FF6060;
     --primary-dark:#E94848;
@@ -108,8 +109,32 @@
 
   /* Libros */
   .books-sec{background:var(--soft)}
-  .feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
-  .feat{padding:24px;border-radius:22px;background:var(--soft)}
+  .anatomy{display:grid;grid-template-columns:1fr minmax(0,560px) 1fr;align-items:center;gap:40px;margin-top:8px}
+  .notes{list-style:none;display:grid;gap:56px}
+  .note{position:relative}
+  .note .t{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;color:var(--ink);line-height:1.2}
+  .note .t .ico{font-size:24px;color:var(--dark);flex:none}
+  .note p{font-size:17px;line-height:1.5;margin-top:6px;color:var(--text)}
+  .notes.left .note{text-align:right}
+  .notes.left .note .t{justify-content:flex-end}
+  .note::after{content:"";position:absolute;top:13px;width:34px;border-top:2px dashed #D9D3E3}
+  .note::before{content:"";position:absolute;top:9px;width:10px;height:10px;border-radius:50%;background:var(--dark)}
+  .notes.left .note::after{right:-38px}.notes.left .note::before{right:-48px}
+  .notes.right .note::after{left:-38px}.notes.right .note::before{left:-48px}
+  .spread{position:relative;margin:0;padding:10px 0 40px}
+  .book-open{display:grid;grid-template-columns:1fr 1fr;background:#7FC8DC;padding:7px 7px 9px;border-radius:10px;box-shadow:0 40px 50px -30px rgba(36,32,63,.5);transform:rotate(-1.5deg)}
+  .page{position:relative;aspect-ratio:1/1;background:#fff;overflow:hidden}
+  .page img{width:100%;height:100%;object-fit:cover;display:block}
+  .pl{border-radius:5px 0 0 5px;padding:13% 12%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center}
+  .pl p{font-size:clamp(15px,1.6vw,20px);line-height:1.5;color:#3A3550;font-weight:500}
+  .orn{position:relative;width:48%;height:10px;background:linear-gradient(#6E5A4B,#6E5A4B) center/100% 1px no-repeat}
+  .orn::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:8px;background:#6E5A4B;border-radius:8px 8px 0 0;transform:translate(-50%,-60%);box-shadow:0 0 0 4px #fff}
+  .pl::after{content:"";position:absolute;inset:0;box-shadow:inset -18px 0 22px -16px rgba(0,0,0,.18);pointer-events:none}
+  .pr{border-radius:0 5px 5px 0}
+  .pr img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .pr::after{content:"";position:absolute;inset:0;box-shadow:inset 18px 0 22px -16px rgba(0,0,0,.18);pointer-events:none}
+  .pl p{font-size:clamp(15px,1.5vw,19px);line-height:1.55;color:var(--ink);font-weight:600}
+  .bubble{position:absolute;right:-14px;bottom:0;background:var(--primary);color:#fff;font-weight:800;font-size:17px;padding:12px 18px;border-radius:20px 20px 4px 20px;box-shadow:0 14px 26px -12px rgba(200,40,60,.6);transform:rotate(2deg);max-width:240px;line-height:1.25}
   .feat .sq{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:var(--dark);color:#fff;margin-bottom:16px;transform:rotate(-4deg)}
   .feat .sq .ico{font-size:24px}
   .feat h3{font-size:20px;margin-bottom:4px}
@@ -144,7 +169,17 @@
   .chip.star{--dark:var(--primary);color:var(--primary)}
   .chip.star[aria-pressed="true"]{color:#fff}
   .fbar{display:flex;align-items:center;justify-content:space-between;gap:14px 20px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:2px dashed #E4DFEA}
+  .fleft{display:flex;align-items:center;gap:18px}
   .count{font-weight:800;color:var(--ink);font-size:18px}
+  .rail-ctrl{display:flex;gap:8px}
+  .rail-ctrl[hidden]{display:none}
+  .rail-ctrl button{width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line);cursor:pointer;display:grid;place-items:center;transition:all .2s}
+  .rail-ctrl button:hover:not(:disabled){background:var(--primary);color:#fff;box-shadow:none}
+  .rail-ctrl button:disabled{opacity:.35;cursor:default}
+  .rail-ctrl .ico{font-size:20px}
+  .books.rail{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 4*22px)/5);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-top:6px;margin-top:-6px}
+  .books.rail::-webkit-scrollbar{display:none}
+  .books.rail>.book{scroll-snap-align:start}
   .count small{display:block;font-size:15px;font-weight:600;color:var(--muted)}
   .seg{display:inline-flex;align-items:center;background:#ECE8F1;border-radius:14px;padding:4px;gap:2px}
   .seg-label{font-size:14px;font-weight:800;color:var(--muted);padding:0 10px 0 10px}
@@ -188,15 +223,26 @@
   .stat:hover{transform:rotate(0) scale(1.04)}
 
   /* Avisos */
-  .news{background:var(--ink);border-radius:36px;padding:64px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;color:#fff;position:relative;overflow:hidden}
-  .news::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--grad);right:-90px;top:-110px;opacity:.9}
+  .news{background:linear-gradient(115deg,#ee0979 0%,#ff6a00 100%);border-radius:36px;padding:64px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;color:#fff;position:relative;overflow:hidden;isolation:isolate}
   .news h2{color:#fff;font-size:clamp(34px,4.2vw,52px);margin-bottom:12px}
-  .news p{color:#D6D3E6;font-size:19px}
-  .news form{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px;position:relative;z-index:1}
-  .news input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
-  .news input:focus{outline:none}
-  .news form:focus-within{box-shadow:0 0 0 3px rgba(255,96,96,.6)}
-  .news .btn{padding:12px 24px}
+  .news p{color:rgba(255,255,255,.94);font-size:19px}
+  .news form{position:relative;z-index:1;display:grid;gap:14px}
+  .news .pill{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px;box-shadow:0 14px 28px -16px rgba(120,0,40,.55)}
+  .news .pill input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
+  .news .pill input:focus{outline:none}
+  .news .pill:focus-within{box-shadow:0 0 0 3px rgba(255,255,255,.7)}
+  .news .btn{padding:12px 24px;background:linear-gradient(115deg,#ee0979,#ff6a00);box-shadow:none}
+  .news .btn:hover{filter:brightness(1.08)}
+  .news .btn:disabled{opacity:.7;cursor:wait}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;color:#fff;cursor:pointer}
+  .consent input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:#24203F;cursor:pointer}
+  .form-msg{font-size:15px;font-weight:800;color:#fff;background:rgba(36,32,63,.35);padding:8px 14px;border-radius:12px}
+  .consent a,.legal-info a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .news .legal-info{font-size:15px;line-height:1.45}
+  .legal-info a{font-weight:500}
+  .form-msg:empty{display:none}
+  .form-msg.ok{color:#fff;background:rgba(255,255,255,.2)}
+  .news .done{color:#fff;font-weight:800;font-size:20px}
   .sr{position:absolute;left:-9999px}
 
   /* Footer */
@@ -211,10 +257,21 @@
   .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3);font-size:15px;color:rgba(255,255,255,.85)}
 
   /* ---------- Responsive ---------- */
-  @media (max-width:1100px){ .books{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:1100px){ .books{grid-template-columns:repeat(3,1fr)} .books.rail{grid-auto-columns:calc((100% - 2*22px)/3)} }
+  @media (max-width:1000px){
+    .menu-btn{display:block}
+    .nav-links{position:absolute;top:76px;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:12px 20px 24px;background:linear-gradient(90deg,#FF4B6E,#FF7458);box-shadow:0 20px 30px -20px rgba(120,10,30,.5);display:none}
+    .nav-links.open{display:flex}
+    .nav-links a:not(.btn){padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25)}
+    .nav-links .btn{margin-top:12px}
+  }
   @media (max-width:1020px){
     .cats{grid-template-columns:repeat(2,1fr)}
-    .feats{grid-template-columns:repeat(2,1fr)}
+    .anatomy{grid-template-columns:1fr 1fr;gap:28px 32px}
+    .spread{grid-column:1/-1;grid-row:1;max-width:560px;width:100%;justify-self:center}
+    .notes{gap:28px}
+    .notes.left .note{text-align:left}.notes.left .note .t{justify-content:flex-start}
+    .note::after,.note::before{display:none}
     .about{grid-template-columns:1fr;gap:40px}
     .news{grid-template-columns:1fr;padding:48px}
     .foot{grid-template-columns:1fr 1fr}
@@ -224,12 +281,8 @@
     .shelf{max-width:520px;margin:0 auto}
   }
   @media (max-width:760px){
-    .menu-btn{display:block}
     .nav{height:68px}
-    .nav-links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;padding:12px 20px 24px;background:linear-gradient(90deg,#FF4B6E,#FF7458);box-shadow:0 20px 30px -20px rgba(120,10,30,.5);display:none}
-    .nav-links.open{display:flex}
-    .nav-links a:not(.btn){padding:12px 0;border-bottom:1px solid rgba(255,255,255,.25)}
-    .nav-links .btn{margin-top:12px}
+    .nav-links{top:68px}
     .brand img{height:32px}
     .section{padding:72px 0}
     body{font-size:18px}
@@ -244,13 +297,19 @@
     .badge{width:96px;height:96px}
     .badge strong{font-size:32px}
     .badge span{font-size:12px}
-    .cats,.feats{grid-template-columns:1fr}
+    .cats{grid-template-columns:1fr}
+    .anatomy{grid-template-columns:1fr}
+    .spread{padding-bottom:0}
+    .pl{padding:10% 9%}
+    .pl p{font-size:13.5px;line-height:1.4}
+    .bubble{position:relative;right:auto;bottom:auto;display:inline-block;margin:14px 0 0 auto;font-size:15px;max-width:none;float:right}
     .fgroup{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px}
     .fgroup::-webkit-scrollbar{display:none}
     .seg{width:100%}
     .seg-label{display:none}
     .seg button{flex:1;padding:9px 6px}
     .books{grid-template-columns:1fr 1fr;gap:24px 14px}
+    .books.rail{grid-auto-columns:calc((100% - 14px)/2.2)}
     .book h3{font-size:17px}
     .book p{display:none}
     .buy{padding:8px 14px;font-size:14px;gap:6px}
@@ -258,8 +317,8 @@
     .stats{gap:14px;padding:0 4px}
     .stat{padding:20px 16px}
     .news{padding:40px 24px;border-radius:28px}
-    .news form{flex-direction:column;border-radius:20px;padding:8px}
-    .news input{padding:12px}
+    .news .pill{flex-direction:column;border-radius:20px;padding:8px}
+    .news .pill input{padding:12px}
     .foot{grid-template-columns:1fr}
   }
 </style>
@@ -283,8 +342,9 @@
     <a href="index.html" class="brand" aria-label="Imparables, inicio"><img src="img/logo.png" alt="Imparables" width="605" height="157"></a>
     <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" id="menuBtn"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
-      <a href="#colecciones">Colecciones</a>
       <a href="#libros">Libros</a>
+      <a href="#colecciones">Colecciones</a>
+      <a href="#por-dentro">Cómo son por dentro</a>
       <a href="#detras">Detrás de Imparables</a>
       <a href="#libros" class="btn btn-white">Comprar libros</a>
     </nav>
@@ -316,6 +376,18 @@
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
 
+<!-- LIBROS -->
+<section class="section books-sec" id="libros">
+  <div class="wrap">
+    <div class="head">
+      <h2>Encuentra tu próximo imparable</h2>
+      <p>Filtra por colección, elige entre individuales o dúos y llévatelo a casa desde Amazon. Lo difícil va a ser quedarse solo con uno.</p>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filtrar libros"></div>
+    <div class="books" id="books"></div>
+  </div>
+</section>
+
 <!-- COLECCIONES -->
 <section class="section" id="colecciones">
   <div class="wrap">
@@ -324,19 +396,33 @@
       <p>Santos con superpoderes de los buenos, científicos que lo preguntaban todo y músicos que tarareaban hasta dormidos. Tres colecciones ya están en la calle y el resto viene pisando fuerte.</p>
     </div>
     <div class="cats" id="cats"></div>
-    <div class="feats" id="feats"></div>
   </div>
 </section>
 
-<!-- LIBROS -->
-<section class="section books-sec" id="libros">
+<!-- CÓMO SON POR DENTRO -->
+<section class="section books-sec" id="por-dentro">
   <div class="wrap">
     <div class="head">
       <h2>Pequeños por fuera, enormes por dentro</h2>
       <p>Caben en la mochila, sobreviven a la merienda y se leen en lo que tardas en decir «uno más y a dormir». Spoiler: nunca es uno más.</p>
     </div>
-    <div class="filters" id="filters" role="group" aria-label="Filtrar libros"></div>
-    <div class="books" id="books"></div>
+    <div class="anatomy">
+      <ul class="notes left" id="notesL"></ul>
+      <figure class="spread" aria-label="Así es un libro de Imparables por dentro">
+        <div class="book-open">
+          <div class="page pl">
+            <span class="orn" aria-hidden="true"></span>
+            <p>Un día de mayo, cuidando las ovejas, vieron una luz y una Señora preciosa sobre una pequeña encina.</p>
+            <span class="orn" aria-hidden="true"></span>
+          </div>
+          <div class="page pr">
+            <img src="img/pagina-pastorcitos.webp" alt="Ilustración de los tres pastorcitos de Fátima con la Virgen junto a una encina" loading="lazy">
+          </div>
+        </div>
+        <div class="bubble">¿Cómo pueden ayudar al mundo hasta los más pequeños?</div>
+      </figure>
+      <ul class="notes right" id="notesR"></ul>
+    </div>
   </div>
 </section>
 
@@ -367,9 +453,15 @@
       <p>Un correo cuando salga libro nuevo y punto. Ni spam ni rollos. Palabra de imparable.</p>
     </div>
     <form id="newsForm">
-      <label for="email" class="sr">Tu correo</label>
-      <input id="email" type="email" required placeholder="tu@correo.com">
-      <button class="btn btn-primary" type="submit">Avísame</button>
+      <div class="pill">
+        <label for="email" class="sr">Tu correo</label>
+        <input id="email" name="email" type="email" required placeholder="tu@correo.com" autocomplete="email">
+        <button class="btn btn-primary" type="submit">Avísame</button>
+      </div>
+      <label class="consent"><input type="checkbox" name="consentimiento" required><span>He leído la <a href="privacidad.html">política de privacidad</a> y acepto recibir emails de Imparables cuando salga un libro nuevo. Puedo darme de baja cuando quiera.</span></label>
+      <p class="legal-info"><a href="privacidad.html">Información sobre protección de datos</a></p>
+      <input type="text" name="web" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="form-msg" id="formMsg" role="status"></p>
     </form>
   </div>
 </section>
@@ -388,14 +480,15 @@
         <h4>Imparables</h4>
         <ul>
           <li><a href="#libros">Libros</a></li>
+          <li><a href="#por-dentro">Cómo son por dentro</a></li>
           <li><a href="#detras">Detrás de Imparables</a></li>
           <li><a href="#avisos">Avísame del próximo</a></li>
-          <li><a href="mailto:hola@somosirremplazables.com">Contacto</a></li>
+          <li><a href="mailto:cuentosdesdemanhattan@gmail.com">Contacto</a></li>
         </ul>
       </div>
     </div>
     <div class="legal">
-      <span>© <span id="yr"></span> Imparables</span>
+      <span>© <span id="yr"></span> Imparables · <a href="privacidad.html">Política de privacidad</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="baja.html">Darme de baja</a></span>
       <span>Hecho con cariño entre Nueva York y Madrid</span>
     </div>
   </div>
@@ -440,6 +533,8 @@ const ICONOS = {
   tapa:'<path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6.5a2.5 2.5 0 0 0 0 5H19v-5"/>',
   imagen:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4-4L5 21"/>',
   texto:'<path d="M4 7V5h16v2"/><path d="M9 19h6"/><path d="M12 5v14"/>',
+  flechaIzq:'<path d="m15 18-6-6 6-6"/>',
+  flechaDer:'<path d="m9 18 6-6-6-6"/>',
   pregunta:'<path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-6.5A8 8 0 1 1 21 12z"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.8 1c0 1.7-2.3 2-2.3 3.5"/><path d="M12 17h.01"/>',
 };
 
@@ -686,12 +781,10 @@ document.getElementById("cats").innerHTML = CATEGORIAS.map(c => `
     <span><h3>${c.nombre}</h3>${estado(c)}</span>
   </button>`).join("");
 
-/* Características */
-document.getElementById("feats").innerHTML = CARACTERISTICAS.map(f => `
-  <div class="feat" style="${tone(f.color)}">
-    <span class="sq">${ico(f.icono)}</span>
-    <h3>${f.titulo}</h3><p>${f.texto}</p>
-  </div>`).join("");
+/* Cómo son por dentro */
+const nota = f => `<li class="note" style="${tone(f.color)}"><div class="t">${ico(f.icono)}${f.titulo}</div><p>${f.texto}</p></li>`;
+document.getElementById("notesL").innerHTML = [CARACTERISTICAS[0], CARACTERISTICAS[2]].map(nota).join("");
+document.getElementById("notesR").innerHTML = [CARACTERISTICAS[1], CARACTERISTICAS[3]].map(nota).join("");
 
 /* Portada: imagen real o generada con los colores de la colección */
 function portada(l, c){
@@ -706,7 +799,7 @@ function portada(l, c){
 }
 
 /* Filtros + libros */
-const NUM_NOVEDADES = 6;
+const NUM_NOVEDADES = 10; // se ven 5 a la vez; el resto, deslizando
 // Orden de publicación: usa "fecha" si el libro la tiene; si no, el código de Amazon (los más nuevos son mayores)
 const fechaDe = l => l.fecha || (l.amazon ? l.amazon.split("/dp/")[1] : "");
 const NOVEDADES = LIBROS.filter(aLaVenta).sort((a,b) => fechaDe(b).localeCompare(fechaDe(a))).slice(0, NUM_NOVEDADES);
@@ -719,7 +812,13 @@ filters.innerHTML = `
     ${CATEGORIAS.map(c => `<button class="chip" data-col="${c.slug}" style="${tone(c.color)}"><i></i>${c.nombre}</button>`).join("")}
   </div>
   <div class="fbar">
-    <div class="count" id="count"></div>
+    <div class="fleft">
+      <div class="count" id="count"></div>
+      <div class="rail-ctrl" id="railCtrl" hidden>
+        <button type="button" data-dir="-1" aria-label="Ver anteriores">${ico("flechaIzq")}</button>
+        <button type="button" data-dir="1" aria-label="Ver siguientes">${ico("flechaDer")}</button>
+      </div>
+    </div>
     <div class="seg" role="group" aria-label="Formato">
       <span class="seg-label">Formato</span>
       <button data-fmt="todos">Todos</button><button data-fmt="ind">Individuales</button><button data-fmt="duo">Dúos</button>
@@ -735,6 +834,10 @@ function pintaLibros(){
   const titulo = F.col === "novedades" ? "Últimas publicaciones" : F.col === "todos" ? "Todos los libros" : cat(F.col).nombre;
   document.getElementById("count").innerHTML = `${titulo}<small>${lista.length} ${lista.length === 1 ? "libro" : "libros"}${F.col === "novedades" ? ", recién salidos de la imprenta" : ""}</small>`;
   const box = document.getElementById("books");
+  const esRail = F.col === "novedades" && lista.length > 0;
+  box.classList.toggle("rail", esRail);
+  railCtrl.hidden = !esRail;
+  box.scrollLeft = 0;
   if (!lista.length){
     const hayCol = F.col === "novedades" || F.col === "todos" || LIBROS.some(l => l.categoria === F.col);
     const c = cat(F.col);
@@ -761,9 +864,26 @@ function pintaLibros(){
       </div>
     </article>`;
   }).join("");
+  actualizaFlechas();
 }
-filters.addEventListener("click", e => {
+const railCtrl = document.getElementById("railCtrl");
+const booksBox = document.getElementById("books");
+function actualizaFlechas(){
+  const [prev, next] = railCtrl.querySelectorAll("button");
+  const max = booksBox.scrollWidth - booksBox.clientWidth - 2;
+  prev.disabled = booksBox.scrollLeft <= 2;
+  next.disabled = booksBox.scrollLeft >= max;
+}
+booksBox.addEventListener("scroll", actualizaFlechas, {passive:true});
+addEventListener("resize", actualizaFlechas);
+railCtrl.addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b) return;
+  const card = booksBox.querySelector(".book");
+  const paso = card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(booksBox).columnGap || 0) : booksBox.clientWidth;
+  booksBox.scrollBy({ left: paso * Number(b.dataset.dir), behavior: "smooth" });
+});
+filters.addEventListener("click", e => {
+  const b = e.target.closest("button[data-col], button[data-fmt]"); if (!b) return;
   if (b.dataset.col) F.col = b.dataset.col;
   if (b.dataset.fmt) F.fmt = b.dataset.fmt;
   pintaLibros();
@@ -782,9 +902,30 @@ document.getElementById("footCats1").innerHTML = CATEGORIAS.slice(0,half).map(li
 document.getElementById("footCats2").innerHTML = CATEGORIAS.slice(half).map(li).join("");
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-document.getElementById("newsForm").addEventListener("submit", e => {
+/* Avísame: guarda el correo en Google Sheets */
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwnveE-zopFmg44KSbnduIbZ0b13-vGIPbGgMQpN6NuryBWJUDdgGgEzI_DrJ7UniKn/exec"; // URL de la app web de Google Apps Script (se rellena en el build)
+document.getElementById("newsForm").addEventListener("submit", async e => {
   e.preventDefault();
-  e.target.innerHTML = '<p style="color:var(--ink);font-weight:800;padding:12px 18px">¡Hecho! Serás de los primeros en saberlo.</p>';
+  const f = e.target, msg = document.getElementById("formMsg");
+  msg.textContent = ""; msg.className = "form-msg";
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  if (f.web.value) return; // trampa para bots
+  const btn = f.querySelector("button");
+  btn.disabled = true; btn.textContent = "Enviando…";
+  try {
+    if (!SHEETS_URL) throw new Error("Falta SHEETS_URL");
+    await fetch(SHEETS_URL, { method:"POST", mode:"no-cors",
+      body: new URLSearchParams({ email: f.email.value.trim(), consentimiento: "si", origen: location.hostname || "web" }) });
+    const apuntado = f.email.value.trim();
+    f.reset();
+    btn.disabled = false; btn.textContent = "Avísame";
+    msg.className = "form-msg ok";
+    msg.textContent = `¡Hecho! Avisaremos a ${apuntado} en cuanto salga un libro nuevo. ¿Quieres apuntar otro email? Escríbelo arriba.`;
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "Avísame";
+    msg.className = "form-msg";
+    msg.textContent = "Uy, algo ha fallado. Prueba otra vez en un momento.";
+  }
 });
 
 const btn = document.getElementById("menuBtn"), nav = document.getElementById("navLinks");
