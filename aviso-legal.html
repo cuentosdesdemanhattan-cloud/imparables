@@ -42,6 +42,10 @@
   .pill{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px}
   .pill input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
   .pill input:focus{outline:none}
+  /* Autorrelleno del navegador: sin caja gris/azul cuadrada */
+  .pill input{border-radius:999px;background:transparent;-webkit-appearance:none;appearance:none}
+  .pill input:-webkit-autofill,.pill input:-webkit-autofill:hover,.pill input:-webkit-autofill:focus,.pill input:autofill{-webkit-box-shadow:0 0 0 1000px #fff inset;box-shadow:0 0 0 1000px #fff inset;-webkit-text-fill-color:#24203F;caret-color:#24203F;border-radius:999px;transition:background-color 9999s ease-out 0s}
+  .pill input:focus,.pill input:focus-visible{outline:none}
   .pill:focus-within{box-shadow:0 0 0 3px rgba(255,96,96,.6)}
   .btn{font-family:"Dosis";font-weight:800;font-size:17px;padding:12px 24px;border-radius:999px;border:0;background:var(--primary);color:#fff;cursor:pointer;white-space:nowrap}
   .btn:hover{background:var(--primary-dark)}
@@ -66,7 +70,8 @@
     .summary dd{margin-bottom:10px}
     .box{padding:28px 20px}
     .pill{flex-direction:column;border-radius:20px;padding:8px}
-    .pill input{padding:12px}
+    .pill input{padding:12px;border-radius:14px}
+    .pill input:-webkit-autofill{border-radius:14px}
   }
 </style>
 </head>

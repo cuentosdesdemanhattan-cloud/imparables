@@ -231,6 +231,10 @@
   .news .pill{display:flex;gap:10px;background:#fff;padding:6px;border-radius:999px;box-shadow:0 14px 28px -16px rgba(120,0,40,.55)}
   .news .pill input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:17px;padding:0 18px;color:var(--ink)}
   .news .pill input:focus{outline:none}
+  /* Autorrelleno del navegador: sin caja gris/azul cuadrada */
+  .pill input{border-radius:999px;background:transparent;-webkit-appearance:none;appearance:none}
+  .pill input:-webkit-autofill,.pill input:-webkit-autofill:hover,.pill input:-webkit-autofill:focus,.pill input:autofill{-webkit-box-shadow:0 0 0 1000px #fff inset;box-shadow:0 0 0 1000px #fff inset;-webkit-text-fill-color:#24203F;caret-color:#24203F;border-radius:999px;transition:background-color 9999s ease-out 0s}
+  .pill input:focus,.pill input:focus-visible{outline:none}
   .news .pill:focus-within{box-shadow:0 0 0 3px rgba(255,255,255,.7)}
   .news .btn{padding:12px 24px;background:linear-gradient(115deg,#ee0979,#ff6a00);box-shadow:none}
   .news .btn:hover{filter:brightness(1.08)}
@@ -334,7 +338,8 @@
     .stat{padding:20px 16px}
     .news{padding:40px 24px;border-radius:28px}
     .news .pill{flex-direction:column;border-radius:20px;padding:8px}
-    .news .pill input{padding:12px}
+    .news .pill input{padding:12px;border-radius:14px}
+    .news .pill input:-webkit-autofill{border-radius:14px}
     .foot{grid-template-columns:1fr}
   }
 </style>
